@@ -161,10 +161,15 @@ foreach ($result as $row) {
 <script src="assets/js/theme.js?v=2026.2"></script>
 <script>
 // Restaure la palette choisie (persistée) avant que l'utilisateur voie la page.
+// Support aussi de ?palette= dans l'URL (démos, captures, partage).
 try {
-	var savedPalette = localStorage.getItem('theme-palette');
+	var urlPalette = new URLSearchParams(location.search).get('palette');
+	var savedPalette = urlPalette || localStorage.getItem('theme-palette');
 	if (savedPalette && savedPalette !== 'default') {
 		document.body.setAttribute('data-palette', savedPalette);
+	}
+	if (urlPalette) {
+		try { localStorage.setItem('theme-palette', urlPalette); } catch (e) {}
 	}
 } catch (e) {}
 </script>
