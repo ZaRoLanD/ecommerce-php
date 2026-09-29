@@ -64,6 +64,9 @@ foreach ($result as $row) {
             $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_is_active=? AND p_name LIKE ? LIMIT $start, $limit");
             $statement->execute(array(1,$search_text));
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            // Anti N+1 : les notes de tous les produits de la page en 1 requête.
+            $ratings_map = fetch_ratings_bulk($pdo, array_column($result, 'p_id'));
            
             
             if ($page == 0) $page = 1;                  //if no page var is given, default to 1.
@@ -165,76 +168,9 @@ foreach ($result as $row) {
                                                     $<?php echo $row['p_old_price']; ?>
                                                 </del>
                                                 <?php endif; ?>
-                                            </h4>
-                                            <div class="rating">
-                                                <?php
-                                                $t_rating = 0;
-                                                $statement1 = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
-                                                $statement1->execute(array($row['p_id']));
-                                                $tot_rating = $statement1->rowCount();
-                                                if($tot_rating == 0) {
-                                                    $avg_rating = 0;
-                                                } else {
-                                                    $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
-                                                    foreach ($result1 as $row1) {
-                                                        $t_rating = $t_rating + $row1['rating'];
-                                                    }
-                                                    $avg_rating = $t_rating / $tot_rating;
-                                                }
-                                                ?>
-                                                <?php
-                                                if($avg_rating == 0) {
-                                                    echo '';
-                                                }
-                                                elseif($avg_rating == 1.5) {
-                                                    echo '
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    ';
-                                                } 
-                                                elseif($avg_rating == 2.5) {
-                                                    echo '
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    ';
-                                                }
-                                                elseif($avg_rating == 3.5) {
-                                                    echo '
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                        <i class="fa fa-star-o"></i>
-                                                    ';
-                                                }
-                                                elseif($avg_rating == 4.5) {
-                                                    echo '
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star-half-o"></i>
-                                                    ';
-                                                }
-                                                else {
-                                                    for($i=1;$i<=5;$i++) {
-                                                        ?>
-                                                        <?php if($i>$avg_rating): ?>
-                                                            <i class="fa fa-star-o"></i>
-                                                        <?php else: ?>
-                                                            <i class="fa fa-star"></i>
-                                                        <?php endif; ?>
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
-                                            </div>
+                                            </h4>                                                <div class="rating">
+                                                    <?php echo render_rating_stars(isset($ratings_map[(int)$row['p_id']]) ? $ratings_map[(int)$row['p_id']]['avg'] : 0); ?>
+                                                </div>
                                             <?php if($row['p_qty'] == 0): ?>
                                                 <div class="out-of-stock">
                                                     <div class="inner">

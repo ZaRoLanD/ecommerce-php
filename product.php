@@ -102,19 +102,10 @@ if(isset($_POST['form_review'])) {
 }
 
 // Getting the average rating for this product
-$t_rating = 0;
-$statement = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$tot_rating = $statement->rowCount();
-if($tot_rating == 0) {
-    $avg_rating = 0;
-} else {
-    $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-    foreach ($result as $row) {
-        $t_rating = $t_rating + $row['rating'];
-    }
-    $avg_rating = $t_rating / $tot_rating;
-}    if(isset($_POST['form_add_to_cart'])) {
+$product_rating = get_product_avg_rating($pdo, $_REQUEST['id']);
+$avg_rating = $product_rating['avg'];
+
+if(isset($_POST['form_add_to_cart'])) {
 
 	// Sécurité : la quantité et le prix proviennent du formulaire POST modifiable
 	// côté client. Le prix est toujours réimporté depuis la base de données.
@@ -680,6 +671,8 @@ if($success_message1 != '') {
                     $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id=? AND p_id!=?");
                     $statement->execute(array($ecat_id,$_REQUEST['id']));
                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                    // Anti N+1 : les notes de tous les produits similaires en 1 requête.
+                    $ratings_map = fetch_ratings_bulk($pdo, array_column($result, 'p_id'));
                     foreach ($result as $row) {
                         ?>
                         <div class="item">
@@ -698,73 +691,7 @@ if($success_message1 != '') {
                                     <?php endif; ?>
                                 </h4>
                                 <div class="rating">
-                                    <?php
-                                    $t_rating = 0;
-                                    $statement1 = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
-                                    $statement1->execute(array($row['p_id']));
-                                    $tot_rating = $statement1->rowCount();
-                                    if($tot_rating == 0) {
-                                        $avg_rating = 0;
-                                    } else {
-                                        $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
-                                        foreach ($result1 as $row1) {
-                                            $t_rating = $t_rating + $row1['rating'];
-                                        }
-                                        $avg_rating = $t_rating / $tot_rating;
-                                    }
-                                    ?>
-                                    <?php
-                                    if($avg_rating == 0) {
-                                        echo '';
-                                    }
-                                    elseif($avg_rating == 1.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    } 
-                                    elseif($avg_rating == 2.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 3.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        ';
-                                    }
-                                    elseif($avg_rating == 4.5) {
-                                        echo '
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        ';
-                                    }
-                                    else {
-                                        for($i=1;$i<=5;$i++) {
-                                            ?>
-                                            <?php if($i>$avg_rating): ?>
-                                                <i class="fa fa-star-o"></i>
-                                            <?php else: ?>
-                                                <i class="fa fa-star"></i>
-                                            <?php endif; ?>
-                                            <?php
-                                        }
-                                    }
-                                    ?>
+                                    <?php echo render_rating_stars(isset($ratings_map[(int)$row['p_id']]) ? $ratings_map[(int)$row['p_id']]['avg'] : 0); ?>
                                 </div>
                                 <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a></p>
                             </div>

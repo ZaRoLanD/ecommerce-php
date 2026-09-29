@@ -26,6 +26,9 @@ define("ADMIN_URL", BASE_URL . "admin" . "/");
 // Security helpers (password hashing, session hardening, HTML escaping)
 require_once(__DIR__ . '/security.php');
 
+// Rating helpers (anti N+1 + rendu étoiles mutualisé)
+require_once(__DIR__ . '/rating_helpers.php');
+
 try {
 	$pdo = new PDO("mysql:host={$dbhost};dbname={$dbname};charset=utf8mb4", $dbuser, $dbpass);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
