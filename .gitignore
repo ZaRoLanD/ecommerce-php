@@ -1,0 +1,24 @@
+# Configuration locale (ne jamais committer)
+*.log
+error_log
+.env
+
+# Uploads et fichiers générés
+assets/uploads/*
+!assets/uploads/.gitkeep
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# Fichiers projet spécifiques
+DATABASE FILE/*.sql.bak
+
+# Outils locaux de la session de dev
+.freebuff/
+php-server.log
+router.php

@@ -1,0 +1,87 @@
+/* =========================================================
+   THEME 2026 — Variantes de palette
+   Chaque variante redéfinit UNIQUEMENT des variables CSS.
+   Application : <body data-palette="warm|cool|luxe"> (défaut : violet).
+   Sélecteur de démo disponible via theme.js (roue dentée en bas à droite).
+   ========================================================= */
+
+/* ---------- 1) CHALEUREUSE — terracotta, corail, miel ---------- */
+body[data-palette="warm"] {
+  --c-bg:        #FAF6F1;
+  --c-surface:   #FFFFFF;
+  --c-midnight:  #2B1D16;
+  --c-navy:      #3E2A20;
+  --c-ink:       #3A2C24;
+  --c-muted:     #8A756A;
+  --c-line:      #EFE3D8;
+  --c-primary:   #D96C47;
+  --c-primary-2: #B8542F;
+  --c-accent:    #F0B429;
+
+  --ring:            rgba(217,108,71,.16);
+  --primary-soft-bg: #FBF0EA;
+  --primary-glow:    rgba(217,108,71,.35);
+  --accent-glow:     rgba(240,180,41,.42);
+  --hero-tint:       rgba(217,108,71,.28);
+  --btn-primary-hover: var(--c-primary-2);
+
+  --font-sans:   'Plus Jakarta Sans', 'Roboto', sans-serif;
+  --font-serif:  'Plus Jakarta Sans', 'Roboto', sans-serif;
+  --h-weight:    800;
+  --h-tracking:  -.02em;
+  --h-transform: none;
+}
+
+/* ---------- 2) FROIDE — émeraude profond, cyan, menthe ---------- */
+body[data-palette="cool"] {
+  --c-bg:        #F2F7F6;
+  --c-surface:   #FFFFFF;
+  --c-midnight:  #06231F;
+  --c-navy:      #0D3B34;
+  --c-ink:       #15332E;
+  --c-muted:     #5F7D77;
+  --c-line:      #DCEAE7;
+  --c-primary:   #0E9F8A;
+  --c-primary-2: #0A7A6A;
+  --c-accent:    #5AD1C0;
+
+  --ring:            rgba(14,159,138,.16);
+  --primary-soft-bg: #EAF7F4;
+  --primary-glow:    rgba(14,159,138,.34);
+  --accent-glow:     rgba(90,209,192,.40);
+  --hero-tint:       rgba(14,159,138,.26);
+  --btn-primary-hover: var(--c-primary-2);
+
+  --font-sans:   'Plus Jakarta Sans', 'Roboto', sans-serif;
+  --font-serif:  'Plus Jakarta Sans', 'Roboto', sans-serif;
+  --h-weight:    800;
+  --h-tracking:  -.02em;
+  --h-transform: none;
+}
+
+/* ---------- 3) LUXE — noir profond, champagne, serif sur les titres ---------- */
+body[data-palette="luxe"] {
+  --c-bg:        #F7F5F2;
+  --c-surface:   #FFFFFF;
+  --c-midnight:  #101010;
+  --c-navy:      #1C1C1E;
+  --c-ink:       #222020;
+  --c-muted:     #857F79;
+  --c-line:      #E7E2DB;
+  --c-primary:   #A98A5B;
+  --c-primary-2: #8A6D42;
+  --c-accent:    #E5C687;
+
+  --ring:            rgba(169,138,91,.18);
+  --primary-soft-bg: #F6F1E7;
+  --primary-glow:    rgba(169,138,91,.34);
+  --accent-glow:     rgba(229,198,135,.42);
+  --hero-tint:       rgba(169,138,91,.26);
+  --btn-primary-hover: var(--c-primary-2);
+
+  --font-sans:   'Plus Jakarta Sans', 'Roboto', sans-serif;
+  --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
+  --h-weight:    700;
+  --h-tracking:  -.01em;
+  --h-transform: none;
+}
