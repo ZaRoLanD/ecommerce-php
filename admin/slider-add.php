@@ -12,11 +12,11 @@ if(isset($_POST['form1'])) {
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     } else {
     	$valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     }
 
 	if($valid == 1) {
@@ -37,7 +37,7 @@ if(isset($_POST['form1'])) {
 		$statement = $pdo->prepare("INSERT INTO tbl_slider (photo,heading,content,button_text,button_url,position) VALUES (?,?,?,?,?,?)");
 		$statement->execute(array($final_name,$_POST['heading'],$_POST['content'],$_POST['button_text'],$_POST['button_url'],$_POST['position']));
 			
-		$success_message = 'Slider is added successfully!';
+		$success_message = 'Le slider a été ajouté !';
 
 		unset($_POST['heading']);
 		unset($_POST['content']);
@@ -49,7 +49,7 @@ if(isset($_POST['form1'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Add Slider</h1>
+		<h1>Ajouter un slider</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="slider.php" class="btn btn-primary btn-sm">View All</a>
@@ -86,25 +86,25 @@ if(isset($_POST['form1'])) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Heading </label>
+							<label for="" class="col-sm-2 control-label">Titre </label>
 							<div class="col-sm-6">
 								<input type="text" autocomplete="off" class="form-control" name="heading" value="<?php if(isset($_POST['heading'])){echo $_POST['heading'];} ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Content </label>
+							<label for="" class="col-sm-2 control-label">Contenu </label>
 							<div class="col-sm-6">
 								<textarea class="form-control" name="content" style="height:140px;"><?php if(isset($_POST['content'])){echo $_POST['content'];} ?></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Button Text </label>
+							<label for="" class="col-sm-2 control-label">Texte du bouton </label>
 							<div class="col-sm-6">
 								<input type="text" autocomplete="off" class="form-control" name="button_text" value="<?php if(isset($_POST['button_text'])){echo $_POST['button_text'];} ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Button URL </label>
+							<label for="" class="col-sm-2 control-label">URL du bouton </label>
 							<div class="col-sm-6">
 								<input type="text" autocomplete="off" class="form-control" name="button_url" value="<?php if(isset($_POST['button_url'])){echo $_POST['button_url'];} ?>">
 							</div>
@@ -122,7 +122,7 @@ if(isset($_POST['form1'])) {
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Envoyer</button>
 							</div>
 						</div>
 					</div>

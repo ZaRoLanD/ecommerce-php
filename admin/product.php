@@ -2,10 +2,10 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View Products</h1>
+		<h1>Voir les produits</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="product-add.php" class="btn btn-primary btn-sm">Add Product</a>
+		<a href="product-add.php" class="btn btn-primary btn-sm">Ajouter un produit</a>
 	</div>
 </section>
 
@@ -19,12 +19,12 @@
 							<tr>
 								<th width="10">#</th>
 								<th>Photo</th>
-								<th width="160">Product Name</th>
-								<th width="60">Old Price</th>
-								<th width="60">(C) Price</th>
-								<th width="60">Quantity</th>
-								<th>Featured?</th>
-								<th>Active?</th>
+								<th width="160">Nom du produit</th>
+								<th width="60">Ancien prix</th>
+								<th width="60">Prix (vente)</th>
+								<th width="60">Quantité</th>
+								<th>En vedette ?</th>
+								<th>Actif ?</th>
 								<th>Category</th>
 								<th width="80">Action</th>
 							</tr>
@@ -82,8 +82,8 @@
 									</td>
 									<td><?php echo $row['tcat_name']; ?><br><?php echo $row['mcat_name']; ?><br><?php echo $row['ecat_name']; ?></td>
 									<td>										
-										<a href="product-edit.php?id=<?php echo $row['p_id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-										<a href="#" class="btn btn-danger btn-xs" data-href="product-delete.php?id=<?php echo $row['p_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
+										<a href="product-edit.php?id=<?php echo $row['p_id']; ?>" class="btn btn-primary btn-xs">Modifier</a>
+										<a href="#" class="btn btn-danger btn-xs" data-href="product-delete.php?id=<?php echo $row['p_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Supprimer</a>  
 									</td>
 								</tr>
 								<?php
@@ -103,15 +103,15 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure want to delete this item?</p>
-                <p style="color:red;">Be careful! This product will be deleted from the order table, payment table, size table, color table and rating table also.</p>
+                <p>Voulez-vous vraiment supprimer cet élément ?</p>
+                <p style="color:red;">Attention ! Ce produit sera également supprimé des tables commandes, paiements, tailles, couleurs et avis.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ if(isset($_POST['form1'])) {
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -33,7 +33,7 @@ if(isset($_POST['form1'])) {
     		$statement->execute(array($final_name,$_POST['heading'],$_POST['content'],$_POST['button_text'],$_POST['button_url'],$_POST['position'],$_REQUEST['id']));
 		}	   
 
-	    $success_message = 'Slider is updated successfully!';
+	    $success_message = 'Le slider a été mis à jour !';
 	}
 }
 ?>
@@ -57,7 +57,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Slider</h1>
+		<h1>Modifier le slider</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="slider.php" class="btn btn-primary btn-sm">View All</a>
@@ -102,7 +102,7 @@ foreach ($result as $row) {
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Existing Photo</label>
+							<label for="" class="col-sm-2 control-label">Photo actuelle</label>
 							<div class="col-sm-9" style="padding-top:5px">
 								<img src="../assets/uploads/<?php echo $photo; ?>" alt="Slider Photo" style="width:400px;">
 							</div>
@@ -114,25 +114,25 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Heading </label>
+							<label for="" class="col-sm-2 control-label">Titre </label>
 							<div class="col-sm-6">
 								<input type="text" autocomplete="off" class="form-control" name="heading" value="<?php echo $heading; ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Content </label>
+							<label for="" class="col-sm-2 control-label">Contenu </label>
 							<div class="col-sm-6">
 								<textarea class="form-control" name="content" style="height:140px;"><?php echo $content; ?></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Button Text </label>
+							<label for="" class="col-sm-2 control-label">Texte du bouton </label>
 							<div class="col-sm-6">
 								<input type="text" autocomplete="off" class="form-control" name="button_text" value="<?php echo $button_text; ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Button URL </label>
+							<label for="" class="col-sm-2 control-label">URL du bouton </label>
 							<div class="col-sm-6">
 								<input type="text" autocomplete="off" class="form-control" name="button_url" value="<?php echo $button_url; ?>">
 							</div>
@@ -150,7 +150,7 @@ foreach ($result as $row) {
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Envoyer</button>
 							</div>
 						</div>
 					</div>

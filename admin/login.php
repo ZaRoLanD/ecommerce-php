@@ -10,7 +10,7 @@ $error_message='';
 if(isset($_POST['form1'])) {
         
     if(empty($_POST['email']) || empty($_POST['password'])) {
-        $error_message = 'Email and/or Password can not be empty<br>';
+        $error_message = 'L\'adresse e-mail et/ou le mot de passe ne peuvent pas être vides<br>';
     } else {
 		
 		$email = strip_tags($_POST['email']);
@@ -21,7 +21,7 @@ if(isset($_POST['form1'])) {
     	$total = $statement->rowCount();    
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);    
         if($total==0) {
-            $error_message .= 'Email Address does not match<br>';
+            $error_message .= 'L\'adresse e-mail ne correspond pas<br>';
         } else {       
             foreach($result as $row) { 
                 $row_password = $row['password'];
@@ -29,7 +29,7 @@ if(isset($_POST['form1'])) {
         
             // Vérification moderne (bcrypt), avec support des anciens hachages MD5.
             if( !verify_password_secure($password, $row_password) ) {
-                $error_message .= 'Password does not match<br>';
+                $error_message .= 'Mot de passe incorrect<br>';
             } else {       
 
                 // Migration silencieuse des anciens hachages MD5 vers bcrypt.
@@ -52,7 +52,7 @@ if(isset($_POST['form1'])) {
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Login</title>
+	<title>Connexion - Administration</title>
 
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -75,10 +75,10 @@ if(isset($_POST['form1'])) {
 
 <div class="login-box">
 	<div class="login-logo">
-		<b>Admin Panel</b>
+		<b>Administration</b>
 	</div>
   	<div class="login-box-body">
-    	<p class="login-box-msg">Log in to start your session</p>
+    	<p class="login-box-msg">Connectez-vous pour démarrer votre session</p>
     
 	    <?php 
 	    if( (isset($error_message)) && ($error_message!='') ):
@@ -89,15 +89,15 @@ if(isset($_POST['form1'])) {
 		<form action="" method="post">
 			<?php $csrf->echoInputField(); ?>
 			<div class="form-group has-feedback">
-				<input class="form-control" placeholder="Email address" name="email" type="email" autocomplete="off" autofocus>
+				<input class="form-control" placeholder="Adresse e-mail" name="email" type="email" autocomplete="off" autofocus>
 			</div>
 			<div class="form-group has-feedback">
-				<input class="form-control" placeholder="Password" name="password" type="password" autocomplete="off" value="">
+				<input class="form-control" placeholder="Mot de passe" name="password" type="password" autocomplete="off" value="">
 			</div>
 			<div class="row">
 				<div class="col-xs-8"></div>
 				<div class="col-xs-4">
-					<input type="submit" class="btn btn-success btn-block btn-flat login-button" name="form1" value="Log In">
+					<input type="submit" class="btn btn-success btn-block btn-flat login-button" name="form1" value="Se connecter">
 				</div>
 			</div>
 		</form>

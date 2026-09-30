@@ -2,7 +2,7 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Select Customer</h1>
+		<h1>Sélectionner un client</h1>
 	</div>
 </section>
 
@@ -14,7 +14,7 @@
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Select a Customer <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Sélectionnez un client <span>*</span></label>
 							<div class="col-sm-4">
 								<select name="cust_id" class="form-control select2">
 								<?php
@@ -34,7 +34,7 @@
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Envoyer</button>
 							</div>
 						</div>
 					</div>
@@ -50,7 +50,7 @@
 <?php if(isset($_POST['form1'])): ?>
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View All Customer Messages</h1>
+		<h1>Voir tous les messages clients</h1>
 	</div>
 </section>
 
@@ -63,9 +63,9 @@
 						<thead>
 							<tr>
 								<th width="30">#</th>
-								<th width="100">Subject</th>
+								<th width="100">Sujet</th>
 								<th width="200">Message</th>
-								<th width="200">Order Details</th>
+								<th width="200">Détails de la commande</th>
 							</tr>
 						</thead>
 						<tbody>

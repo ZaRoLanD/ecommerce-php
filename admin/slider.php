@@ -2,10 +2,10 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View Sliders</h1>
+		<h1>Voir les sliders</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="slider-add.php" class="btn btn-primary btn-sm">Add Slider</a>
+		<a href="slider-add.php" class="btn btn-primary btn-sm">Ajouter un slider</a>
 	</div>
 </section>
 
@@ -19,10 +19,10 @@
 							<tr>
 								<th>#</th>
 								<th>Photo</th>
-								<th>Heading</th>
-								<th>Content</th>
-								<th>Button Text</th>
-								<th>Button URL</th>
+								<th>Titre</th>
+								<th>Contenu</th>
+								<th>Texte du bouton</th>
+								<th>URL du bouton</th>
 								<th>Position</th>
 								<th width="140">Action</th>
 							</tr>
@@ -57,8 +57,8 @@
 									<td><?php echo $row['button_url']; ?></td>
 									<td><?php echo $row['position']; ?></td>
 									<td>										
-										<a href="slider-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-										<a href="#" class="btn btn-danger btn-xs" data-href="slider-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
+										<a href="slider-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Modifier</a>
+										<a href="#" class="btn btn-danger btn-xs" data-href="slider-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Supprimer</a>  
 									</td>
 								</tr>
 								<?php
@@ -78,14 +78,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure want to delete this item?</p>
+                <p>Voulez-vous vraiment supprimer cet élément ?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

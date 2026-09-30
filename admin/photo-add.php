@@ -6,7 +6,7 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['caption'])) {
         $valid = 0;
-        $error_message .= "Photo Caption Name can not be empty<br>";
+        $error_message .= "La légende de la photo ne peut pas être vide<br>";
     }
 
     $path = $_FILES['photo']['name'];
@@ -14,13 +14,13 @@ if(isset($_POST['form1'])) {
 
     if($path == '') {
     	$valid = 0;
-        $error_message .= "You must have to select a photo<br>";
+        $error_message .= "Vous devez sélectionner une photo<br>";
     } else {
     	$ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
     
@@ -42,14 +42,14 @@ if(isset($_POST['form1'])) {
 		$statement = $pdo->prepare("INSERT INTO tbl_photo (caption,photo) VALUES (?,?)");
 		$statement->execute(array($_POST['caption'],$final_name));
 
-    	$success_message = 'Photo is added successfully.';
+    	$success_message = 'La photo a été ajoutée.';
     }
 }
 ?>
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Add Photo</h1>
+		<h1>Ajouter une photo</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="photo.php" class="btn btn-primary btn-sm">View All</a>
@@ -82,13 +82,13 @@ if(isset($_POST['form1'])) {
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Photo Caption <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Légende de la photo <span>*</span></label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" name="caption">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Upload Photo <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Téléverser une photo <span>*</span></label>
 							<div class="col-sm-4" style="padding-top:6px;">
 								<input type="file" name="photo">
 							</div>
@@ -96,7 +96,7 @@ if(isset($_POST['form1'])) {
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Envoyer</button>
 							</div>
 						</div>
 					</div>

@@ -16,7 +16,7 @@ $return_url = 'payment_success.php';
 $cancel_url = 'payment.php';
 $notify_url = 'payment/paypal/verify_process.php';
 
-$item_name = 'Product Item(s)';
+$item_name = 'Articles commandés';
 
 // Garde anti-acès direct : panier et session client obligatoires
 if(!isset($_SESSION['customer']) || !isset($_SESSION['cart_p_id'])) {

@@ -81,7 +81,7 @@ if (!isset($_SESSION['pending_cleanup_last_run']) || (time() - (int)$_SESSION['p
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 
 	<!-- Meta Tags -->
@@ -188,35 +188,35 @@ if (!isset($_SESSION['pending_cleanup_last_run']) || (time() - (int)$_SESSION['p
 
 	if($cur_page == 'dashboard.php') {
 		?>
-		<title>Dashboard - <?php echo $meta_title_home; ?></title>
+		<title>Tableau de bord - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-profile-update.php') {
 		?>
-		<title>Update Profile - <?php echo $meta_title_home; ?></title>
+		<title>Mise à jour du profil - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-billing-shipping-update.php') {
 		?>
-		<title>Update Billing and Shipping Info - <?php echo $meta_title_home; ?></title>
+		<title>Mise à jour des adresses - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-password-update.php') {
 		?>
-		<title>Update Password - <?php echo $meta_title_home; ?></title>
+		<title>Mise à jour du mot de passe - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
 	}
 	if($cur_page == 'customer-order.php') {
 		?>
-		<title>Orders - <?php echo $meta_title_home; ?></title>
+		<title>Commandes - <?php echo $meta_title_home; ?></title>
 		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
 		<meta name="description" content="<?php echo $meta_description_home; ?>">
 		<?php
@@ -360,7 +360,7 @@ if (!isset($_SESSION['pending_cleanup_last_run']) || (time() - (int)$_SESSION['p
 				<div class="menu-container">
 					<div class="menu">
 						<ul>
-							<li><a href="index.php">Home</a></li>
+							<li><a href="index.php">Accueil</a></li>
 							
 							<?php
 							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");

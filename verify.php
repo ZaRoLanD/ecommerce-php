@@ -28,12 +28,12 @@ if(!$token_found) {
 $statement = $pdo->prepare("UPDATE tbl_customer SET cust_token=?, cust_status=? WHERE cust_email=?");
 $statement->execute(array('',1,$_GET['email']));
 
-$success_message = '<p style="color:green;">Your email is verified successfully. You can now login to our website.</p><p><a href="'.BASE_URL.'login.php" style="color:#167ac6;font-weight:bold;">Click here to login</a></p>';
+$success_message = '<p style="color:green;">'.LANG_VALUE_137.'</p><p><a href="'.BASE_URL.'login.php" style="color:#167ac6;font-weight:bold;">'.LANG_VALUE_11.'</a></p>';
 ?>
 
 <div class="page-banner" style="background-color:#444;">
     <div class="inner">
-        <h1>Registration Successful</h1>
+        <h1><?php echo LANG_VALUE_17; ?></h1>
     </div>
 </div>
 

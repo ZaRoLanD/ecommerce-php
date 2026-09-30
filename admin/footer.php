@@ -119,14 +119,32 @@
 
 
 
-	    $("#example1").DataTable();
+	    var datatables_fr = {
+	      "emptyTable":     "Aucune donnée disponible dans le tableau",
+	      "info":           "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
+	      "infoEmpty":      "Affichage de 0 à 0 sur 0 entrée",
+	      "infoFiltered":   "(filtrées à partir de _MAX_ entrées au total)",
+	      "lengthMenu":     "Afficher _MENU_ entrées",
+	      "loadingRecords": "Chargement…",
+	      "processing":     "Traitement…",
+	      "search":         "Rechercher :",
+	      "zeroRecords":    "Aucune entrée correspondante trouvée",
+	      "paginate": {
+	        "first":      "Première",
+	        "last":       "Dernière",
+	        "next":       "Suivant",
+	        "previous":   "Précédent"
+	      }
+	    };
+	    $("#example1").DataTable({ "language": datatables_fr });
 	    $('#example2').DataTable({
 	      "paging": true,
 	      "lengthChange": false,
 	      "searching": false,
 	      "ordering": true,
 	      "info": true,
-	      "autoWidth": false
+	      "autoWidth": false,
+	      "language": datatables_fr
 	    });
 
 	    $('#confirm-delete').on('show.bs.modal', function(e) {
@@ -141,15 +159,15 @@
 
 		function confirmDelete()
 	    {
-	        return confirm("Are you sure want to delete this data?");
+	        return confirm("Voulez-vous vraiment supprimer ces données ?");
 	    }
 	    function confirmActive()
 	    {
-	        return confirm("Are you sure want to Active?");
+	        return confirm("Voulez-vous vraiment activer cet élément ?");
 	    }
 	    function confirmInactive()
 	    {
-	        return confirm("Are you sure want to Inactive?");
+	        return confirm("Voulez-vous vraiment désactiver cet élément ?");
 	    }
 
 	</script>

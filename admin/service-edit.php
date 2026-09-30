@@ -6,12 +6,12 @@ if(isset($_POST['form1'])) {
 
 	if(empty($_POST['title'])) {
 		$valid = 0;
-		$error_message .= 'Title can not be empty<br>';
+		$error_message .= 'Le titre ne peut pas être vide<br>';
 	}
 
 	if(empty($_POST['content'])) {
 		$valid = 0;
-		$error_message .= 'Content can not be empty<br>';
+		$error_message .= 'Le contenu ne peut pas être vide<br>';
 	}
 
 	
@@ -23,7 +23,7 @@ if(isset($_POST['form1'])) {
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -43,7 +43,7 @@ if(isset($_POST['form1'])) {
     		$statement->execute(array($_POST['title'],$_POST['content'],$final_name,$_REQUEST['id']));
 		}	   
 
-	    $success_message = 'Service is updated successfully!';
+	    $success_message = 'Le service a été mis à jour !';
 	}
 }
 ?>
@@ -67,7 +67,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Service</h1>
+		<h1>Modifier le service</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="service.php" class="btn btn-primary btn-sm">View All</a>
@@ -109,19 +109,19 @@ foreach ($result as $row) {
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Title <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Titre <span>*</span></label>
 							<div class="col-sm-6">
 								<input type="text" autocomplete="off" class="form-control" name="title" value="<?php echo $title; ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Content <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Contenu <span>*</span></label>
 							<div class="col-sm-6">
 								<textarea class="form-control" name="content" style="height:140px;"><?php echo $content; ?></textarea>
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Existing Photo</label>
+							<label for="" class="col-sm-2 control-label">Photo actuelle</label>
 							<div class="col-sm-9" style="padding-top:5px">
 								<img src="../assets/uploads/<?php echo $photo; ?>" alt="Service Photo" style="width:180px;">
 							</div>
@@ -135,7 +135,7 @@ foreach ($result as $row) {
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Envoyer</button>
 							</div>
 						</div>
 					</div>

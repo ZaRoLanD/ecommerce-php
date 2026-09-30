@@ -165,7 +165,7 @@ if (isset($_POST['form1'])) {
                    "Reply-To: noreply@" . BASE_URL . "\r\n" .
                    "X-Mailer: PHP/" . phpversion() . "\r\n" . 
                    "MIME-Version: 1.0\r\n" . 
-                   "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                   "Content-Type: text/html; charset=UTF-8\r\n";
         
         // Sending Email
         mail($to, $subject, $message, $headers);
@@ -236,7 +236,7 @@ if (isset($_POST['form1'])) {
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_106; ?> *</label>
                                     <select name="cust_country" class="form-control select2">
-                                        <option value="">Select country</option>
+                                        <option value="">Choisissez un pays</option>
                                     <?php
                                     $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                     $statement->execute();

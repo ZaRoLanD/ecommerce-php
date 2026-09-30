@@ -2,7 +2,7 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View Countries</h1>
+		<h1>Voir les pays</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="country-add.php" class="btn btn-primary btn-sm">Add New</a>
@@ -23,7 +23,7 @@
 			<thead>
 			    <tr>
 			        <th>#</th>
-			        <th>Country Name</th>
+			        <th>Nom du pays</th>
 			        <th>Action</th>
 			    </tr>
 			</thead>
@@ -40,8 +40,8 @@
 	                    <td><?php echo $i; ?></td>
 	                    <td><?php echo $row['country_name']; ?></td>
 	                    <td>
-	                        <a href="country-edit.php?id=<?php echo $row['country_id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-	                        <a href="#" class="btn btn-danger btn-xs" data-href="country-delete.php?id=<?php echo $row['country_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
+	                        <a href="country-edit.php?id=<?php echo $row['country_id']; ?>" class="btn btn-primary btn-xs">Modifier</a>
+	                        <a href="#" class="btn btn-danger btn-xs" data-href="country-delete.php?id=<?php echo $row['country_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Supprimer</a>
 	                    </td>
 	                </tr>
             		<?php
@@ -61,14 +61,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this item?
+                Voulez-vous vraiment supprimer cet élément ?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

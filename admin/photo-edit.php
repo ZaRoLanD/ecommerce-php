@@ -6,7 +6,7 @@ if(isset($_POST['form1'])) {
 
 	if(empty($_POST['caption'])) {
         $valid = 0;
-        $error_message .= "Photo Caption Name can not be empty<br>";
+        $error_message .= "La légende de la photo ne peut pas être vide<br>";
     }
 
     $path = $_FILES['photo']['name'];
@@ -17,7 +17,7 @@ if(isset($_POST['form1'])) {
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
        
@@ -38,7 +38,7 @@ if(isset($_POST['form1'])) {
 			$statement->execute(array($_POST['caption'],$final_name,$_REQUEST['id']));
     	}
     	
-    	$success_message = 'Photo is updated successfully.';
+    	$success_message = 'La photo a été mise à jour.';
     }
 }
 ?>
@@ -62,7 +62,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Photo</h1>
+		<h1>Modifier la photo</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="photo.php" class="btn btn-primary btn-sm">View All</a>
@@ -102,13 +102,13 @@ foreach ($result as $row) {
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Photo Caption <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Légende de la photo <span>*</span></label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" name="caption" value="<?php echo $caption; ?>">
 							</div>
 						</div>
 						<div class="form-group">
-				            <label for="" class="col-sm-2 control-label">Existing Photo</label>
+				            <label for="" class="col-sm-2 control-label">Photo actuelle</label>
 				            <div class="col-sm-6" style="padding-top:6px;">
 				                <img src="../assets/uploads/<?php echo $photo; ?>" class="existing-photo" style="width:300px;">
 
@@ -116,7 +116,7 @@ foreach ($result as $row) {
 				            </div>
 				        </div>
 						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Upload New Photo <span>*</span></label>
+							<label for="" class="col-sm-2 control-label">Téléverser une nouvelle photo <span>*</span></label>
 							<div class="col-sm-4" style="padding-top:6px;">
 								<input type="file" name="photo">
 							</div>
@@ -124,7 +124,7 @@ foreach ($result as $row) {
 						<div class="form-group">
 							<label for="" class="col-sm-2 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Envoyer</button>
 							</div>
 						</div>
 					</div>

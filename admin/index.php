@@ -1,7 +1,7 @@
 <?php require_once('header.php'); ?>
 
 <section class="content-header">
-	<h1>Dashboard</h1>
+	<h1>Tableau de bord</h1>
 </section>
 
 <?php
@@ -149,7 +149,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  <div class="inner">
 					<h3><?php echo $total_subscriber; ?></h3>
   
-					<p>Subscriber</p>
+					<p>S'abonnerr</p>
 				  </div>
 				  <div class="icon">
 					<i class="ionicons ion-person-add"></i>
@@ -179,7 +179,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  <div class="inner">
 					<h3><?php echo $total_top_category; ?></h3>
   
-					<p>Top Categories</p>
+					<p>Top Catégories</p>
 				  </div>
 				  <div class="icon">
 					<i class="ionicons ion-arrow-up-b"></i>
@@ -194,7 +194,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  <div class="inner">
 					<h3><?php echo $total_mid_category; ?></h3>
   
-					<p>Mid Categories</p>
+					<p>Mid Catégories</p>
 				  </div>
 				  <div class="icon">
 					<i class="ionicons ion-android-menu"></i>
@@ -209,7 +209,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  <div class="inner">
 					<h3><?php echo $total_end_category; ?></h3>
   
-					<p>End Categories</p>
+					<p>End Catégories</p>
 				  </div>
 				  <div class="icon">
 					<i class="ionicons ion-arrow-down-b"></i>

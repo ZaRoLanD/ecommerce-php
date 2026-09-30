@@ -26,7 +26,7 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['p_current_price'])) {
         $valid = 0;
-        $error_message .= "Current Price can not be empty<br>";
+        $error_message .= "Prix actuel can not be empty<br>";
     }
 
     if(empty($_POST['p_qty'])) {
@@ -42,7 +42,7 @@ if(isset($_POST['form1'])) {
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -191,7 +191,7 @@ if(isset($_POST['form1'])) {
         	$statement->execute(array($_REQUEST['id']));
 		}
 	
-    	$success_message = 'Product is updated successfully.';
+    	$success_message = 'Le produit a été mis à jour.';
     }
 }
 ?>
@@ -215,7 +215,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Product</h1>
+		<h1>Modifier le produit</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="product.php" class="btn btn-primary btn-sm">View All</a>
@@ -299,7 +299,7 @@ foreach ($result as $row) {
 				<div class="box box-info">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Top Level Category Name <span>*</span></label>
+							<label for="" class="col-sm-3 control-label">Nom de la catégorie niveau 1 <span>*</span></label>
 							<div class="col-sm-4">
 								<select name="tcat_id" class="form-control select2 top-cat">
 		                            <option value="">Select Top Level Category</option>
@@ -317,7 +317,7 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Mid Level Category Name <span>*</span></label>
+							<label for="" class="col-sm-3 control-label">Nom de la catégorie niveau 2 <span>*</span></label>
 							<div class="col-sm-4">
 								<select name="mcat_id" class="form-control select2 mid-cat">
 		                            <option value="">Select Mid Level Category</option>
@@ -335,7 +335,7 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">End Level Category Name <span>*</span></label>
+							<label for="" class="col-sm-3 control-label">Nom de la catégorie niveau 3 <span>*</span></label>
 							<div class="col-sm-4">
 								<select name="ecat_id" class="form-control select2 end-cat">
 		                            <option value="">Select End Level Category</option>
@@ -353,31 +353,31 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Product Name <span>*</span></label>
+							<label for="" class="col-sm-3 control-label">Nom du produit <span>*</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_name" class="form-control" value="<?php echo $p_name; ?>">
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Old Price<br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
+							<label for="" class="col-sm-3 control-label">Ancien prix<br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_old_price" class="form-control" value="<?php echo $p_old_price; ?>">
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Current Price <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
+							<label for="" class="col-sm-3 control-label">Prix actuel <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_current_price" class="form-control" value="<?php echo $p_current_price; ?>">
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Quantity <span>*</span></label>
+							<label for="" class="col-sm-3 control-label">Quantité <span>*</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_qty" class="form-control" value="<?php echo $p_qty; ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Select Size</label>
+							<label for="" class="col-sm-3 control-label">Choisir la taille</label>
 							<div class="col-sm-4">
 								<select name="size[]" class="form-control select2" multiple="multiple">
 									<?php
@@ -402,7 +402,7 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Select Color</label>
+							<label for="" class="col-sm-3 control-label">Choisir la couleur</label>
 							<div class="col-sm-4">
 								<select name="color[]" class="form-control select2" multiple="multiple">
 									<?php
@@ -427,20 +427,20 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Existing Featured Photo</label>
+							<label for="" class="col-sm-3 control-label">Photo mise en avant actuelle</label>
 							<div class="col-sm-4" style="padding-top:4px;">
 								<img src="../assets/uploads/<?php echo $p_featured_photo; ?>" alt="" style="width:150px;">
 								<input type="hidden" name="current_photo" value="<?php echo $p_featured_photo; ?>">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Change Featured Photo </label>
+							<label for="" class="col-sm-3 control-label">Changer la photo mise en avant </label>
 							<div class="col-sm-4" style="padding-top:4px;">
 								<input type="file" name="p_featured_photo">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Other Photos</label>
+							<label for="" class="col-sm-3 control-label">Autres photos</label>
 							<div class="col-sm-4" style="padding-top:4px;">
 								<table id="ProductTable" style="width:100%;">
 			                        <tbody>
@@ -475,13 +475,13 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Short Description</label>
+							<label for="" class="col-sm-3 control-label">Description courte</label>
 							<div class="col-sm-8">
 								<textarea name="p_short_description" class="form-control" cols="30" rows="10" id="editor1"><?php echo $p_short_description; ?></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Features</label>
+							<label for="" class="col-sm-3 control-label">Caractéristiques</label>
 							<div class="col-sm-8">
 								<textarea name="p_feature" class="form-control" cols="30" rows="10" id="editor3"><?php echo $p_feature; ?></textarea>
 							</div>
@@ -493,13 +493,13 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Return Policy</label>
+							<label for="" class="col-sm-3 control-label">Politique de retour</label>
 							<div class="col-sm-8">
 								<textarea name="p_return_policy" class="form-control" cols="30" rows="10" id="editor5"><?php echo $p_return_policy; ?></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Is Featured?</label>
+							<label for="" class="col-sm-3 control-label">En vedette ?</label>
 							<div class="col-sm-8">
 								<select name="p_is_featured" class="form-control" style="width:auto;">
 									<option value="0" <?php if($p_is_featured == '0'){echo 'selected';} ?>>No</option>
@@ -508,7 +508,7 @@ foreach ($result as $row) {
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Is Active?</label>
+							<label for="" class="col-sm-3 control-label">Actif ?</label>
 							<div class="col-sm-8">
 								<select name="p_is_active" class="form-control" style="width:auto;">
 									<option value="0" <?php if($p_is_active == '0'){echo 'selected';} ?>>No</option>
@@ -519,7 +519,7 @@ foreach ($result as $row) {
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label"></label>
 							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Update</button>
+								<button type="submit" class="btn btn-success pull-left" name="form1">Mettre à jour</button>
 							</div>
 						</div>
 					</div>

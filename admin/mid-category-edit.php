@@ -11,7 +11,7 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['mcat_name'])) {
         $valid = 0;
-        $error_message .= "Mid Level Category Name can not be empty<br>";
+        $error_message .= "Nom de la catégorie niveau 2 can not be empty<br>";
     }
 
     if($valid == 1) {    	
@@ -19,7 +19,7 @@ if(isset($_POST['form1'])) {
 		$statement = $pdo->prepare("UPDATE tbl_mid_category SET mcat_name=?,tcat_id=? WHERE mcat_id=?");
 		$statement->execute(array($_POST['mcat_name'],$_POST['tcat_id'],$_REQUEST['id']));
 
-    	$success_message = 'Mid Level Category is updated successfully.';
+    	$success_message = 'La catégorie niveau 2 a été mise à jour.';
     }
 }
 ?>
@@ -43,7 +43,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Mid Level Category</h1>
+		<h1>Modifier la catégorie niveau 2</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="mid-category.php" class="btn btn-primary btn-sm">View All</a>
@@ -85,7 +85,7 @@ foreach ($result as $row) {
 
             <div class="box-body">
                 <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Top Level Category Name <span>*</span></label>
+                    <label for="" class="col-sm-3 control-label">Nom de la catégorie niveau 1 <span>*</span></label>
                     <div class="col-sm-4">
                         <select name="tcat_id" class="form-control select2">
                             <option value="">Select Top Level Category</option>
@@ -103,7 +103,7 @@ foreach ($result as $row) {
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Mid Level Category Name <span>*</span></label>
+                    <label for="" class="col-sm-3 control-label">Nom de la catégorie niveau 2 <span>*</span></label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="mcat_name" value="<?php echo $mcat_name; ?>">
                     </div>
@@ -111,7 +111,7 @@ foreach ($result as $row) {
                 <div class="form-group">
                 	<label for="" class="col-sm-3 control-label"></label>
                     <div class="col-sm-6">
-                      <button type="submit" class="btn btn-success pull-left" name="form1">Update</button>
+                      <button type="submit" class="btn btn-success pull-left" name="form1">Mettre à jour</button>
                     </div>
                 </div>
 
@@ -133,14 +133,14 @@ foreach ($result as $row) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this item?
+                Voulez-vous vraiment supprimer cet élément ?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

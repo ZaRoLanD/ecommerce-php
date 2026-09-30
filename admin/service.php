@@ -2,10 +2,10 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View Services</h1>
+		<h1>Voir les services</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="service-add.php" class="btn btn-primary btn-sm">Add Service</a>
+		<a href="service-add.php" class="btn btn-primary btn-sm">Ajouter un service</a>
 	</div>
 </section>
 
@@ -19,8 +19,8 @@
 							<tr>
 								<th width="30">#</th>
 								<th>Photo</th>
-								<th width="100">Title</th>
-								<th>Content</th>
+								<th width="100">Titre</th>
+								<th>Contenu</th>
 								<th width="80">Action</th>
 							</tr>
 						</thead>
@@ -39,8 +39,8 @@
 									<td><?php echo $row['title']; ?></td>
 									<td><?php echo $row['content']; ?></td>
 									<td>										
-										<a href="service-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-										<a href="#" class="btn btn-danger btn-xs" data-href="service-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>  
+										<a href="service-edit.php?id=<?php echo $row['id']; ?>" class="btn btn-primary btn-xs">Modifier</a>
+										<a href="#" class="btn btn-danger btn-xs" data-href="service-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete">Supprimer</a>  
 									</td>
 								</tr>
 								<?php
@@ -62,14 +62,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure want to delete this item?</p>
+                <p>Voulez-vous vraiment supprimer cet élément ?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

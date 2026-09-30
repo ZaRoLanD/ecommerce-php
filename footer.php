@@ -65,25 +65,24 @@ foreach ($result as $row)
 				    		$statement = $pdo->prepare("INSERT INTO tbl_subscriber (subs_email,subs_date,subs_date_time,subs_hash,subs_active) VALUES (?,?,?,?,?)");
 				    		$statement->execute(array($_POST['email_subscribe'],$current_date,$current_date_time,$key,0));
 
-				    		// Sending Confirmation Email
-				    		$to = $_POST['email_subscribe'];
-							$subject = 'Subscriber Email Confirmation';
+				    		// Sending Confirmation Email							$to = $_POST['email_subscribe'];
+							$subject = 'Confirmation d\'inscription à la newsletter';
 							
 							// Getting the url of the verification link
 							$verification_url = BASE_URL.'verify.php?email='.$to.'&key='.$key;
 
 							$message = '
-Thanks for your interest to subscribe our newsletter!<br><br>
-Please click this link to confirm your subscription:
+Merci de votre intérêt pour notre newsletter !<br><br>
+Veuillez cliquer sur ce lien pour confirmer votre abonnement :
 					'.$verification_url.'<br><br>
-This link will be active only for 24 hours.
+Ce lien ne sera actif que pendant 24 heures.
 					';
 
 							$headers = 'From: ' . $contact_email . "\r\n" .
 								   'Reply-To: ' . $contact_email . "\r\n" .
 								   'X-Mailer: PHP/' . phpversion() . "\r\n" . 
 								   "MIME-Version: 1.0\r\n" . 
-								   "Content-Type: text/html; charset=ISO-8859-1\r\n";
+								   "Content-Type: text/html; charset=UTF-8\r\n";
 
 							// Sending the email
 							mail($to, $subject, $message, $headers);
@@ -176,7 +175,7 @@ try {
 <script>
 	function confirmDelete()
 	{
-	    return confirm("Sure you want to delete this data?");
+	    return confirm("Voulez-vous vraiment supprimer ces données ?");
 	}
 	$(document).ready(function () {
 		advFieldsStatus = $('#advFieldsStatus').val();
@@ -225,7 +224,7 @@ try {
     function stripeResponseHandler(status, response) {
         if (response.error) {
             $('#submit-button').prop("disabled", false);
-            $("#msg-container").html('<div style="color: red;border: 1px solid;margin: 10px 0px;padding: 5px;"><strong>Error:</strong> ' + response.error.message + '</div>');
+            $("#msg-container").html('<div style="color: red;border: 1px solid;margin: 10px 0px;padding: 5px;"><strong>Erreur :</strong> ' + response.error.message + '</div>');
             $("#msg-container").show();
         } else {
             var form$ = $("#stripe_form");

@@ -6,7 +6,7 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['color_name'])) {
         $valid = 0;
-        $error_message .= "Color Name can not be empty<br>";
+        $error_message .= "Le nom de la couleur ne peut pas être vide<br>";
     } else {
 		// Duplicate Color checking
     	// current Color name that is in the database
@@ -22,7 +22,7 @@ if(isset($_POST['form1'])) {
     	$total = $statement->rowCount();							
     	if($total) {
     		$valid = 0;
-        	$error_message .= 'Color name already exists<br>';
+        	$error_message .= 'Ce nom de couleur existe déjà<br>';
     	}
     }
 
@@ -31,7 +31,7 @@ if(isset($_POST['form1'])) {
 		$statement = $pdo->prepare("UPDATE tbl_color SET color_name=? WHERE color_id=?");
 		$statement->execute(array($_POST['color_name'],$_REQUEST['id']));
 
-    	$success_message = 'Color is updated successfully.';
+    	$success_message = 'La couleur a été mise à jour.';
     }
 }
 ?>
@@ -55,7 +55,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Color</h1>
+		<h1>Modifier la couleur</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="color.php" class="btn btn-primary btn-sm">View All</a>
@@ -96,7 +96,7 @@ foreach ($result as $row) {
 
             <div class="box-body">
                 <div class="form-group">
-                    <label for="" class="col-sm-2 control-label">Color Name <span>*</span></label>
+                    <label for="" class="col-sm-2 control-label">Nom de la couleur <span>*</span></label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="color_name" value="<?php echo $color_name; ?>">
                     </div>
@@ -104,7 +104,7 @@ foreach ($result as $row) {
                 <div class="form-group">
                 	<label for="" class="col-sm-2 control-label"></label>
                     <div class="col-sm-6">
-                      <button type="submit" class="btn btn-success pull-left" name="form1">Update</button>
+                      <button type="submit" class="btn btn-success pull-left" name="form1">Mettre à jour</button>
                     </div>
                 </div>
 
@@ -126,14 +126,14 @@ foreach ($result as $row) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this item?
+                Voulez-vous vraiment supprimer cet élément ?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

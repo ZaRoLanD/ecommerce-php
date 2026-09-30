@@ -8,8 +8,8 @@ if(isset($_POST['form1'])) {
         $valid = 0;
         $error_message .= "You must have to select a country<br>";
     } else {
-		// Duplicate Country checking
-    	// current Country name that is in the database
+		// Duplicate Pays checking
+    	// current Pays name that is in the database
     	$statement = $pdo->prepare("SELECT * FROM tbl_shipping_cost WHERE shipping_cost_id=?");
 		$statement->execute(array($_REQUEST['id']));
 		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ if(isset($_POST['form1'])) {
     	$total = $statement->rowCount();							
     	if($total) {
     		$valid = 0;
-        	$error_message .= 'Country already exists<br>';
+        	$error_message .= 'Ce pays existe déjà<br>';
     	}
     }
 
@@ -31,7 +31,7 @@ if(isset($_POST['form1'])) {
 		$statement = $pdo->prepare("UPDATE tbl_shipping_cost SET country_id=?,amount=? WHERE shipping_cost_id=?");
 		$statement->execute(array($_POST['country_id'],$_POST['amount'],$_REQUEST['id']));
 
-    	$success_message = 'Shipping Cost is updated successfully.';
+    	$success_message = 'Les frais de livraison ont été mis à jour.';
     }
 }
 ?>
@@ -55,7 +55,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Shipping Cost</h1>
+		<h1>Modifier les frais de livraison</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="shipping-cost.php" class="btn btn-primary btn-sm">View All</a>
@@ -95,10 +95,10 @@ foreach ($result as $row) {
             <div class="box box-info">
                 <div class="box-body">
                     <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Select Country <span>*</span></label>
+                        <label for="" class="col-sm-2 control-label">Choisir le pays <span>*</span></label>
                         <div class="col-sm-4">
                             <select name="country_id" class="form-control select2">
-                                <option value="">Select a country</option>
+                                <option value="">Choisissez un pays</option>
                                 <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                 $statement->execute();
@@ -113,7 +113,7 @@ foreach ($result as $row) {
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Amount <span>*</span></label>
+                        <label for="" class="col-sm-2 control-label">Montant <span>*</span></label>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" name="amount" value="<?php echo $amount; ?>">
                         </div>
@@ -121,7 +121,7 @@ foreach ($result as $row) {
                     <div class="form-group">
                     	<label for="" class="col-sm-2 control-label"></label>
                         <div class="col-sm-6">
-                          <button type="submit" class="btn btn-success pull-left" name="form1">Update</button>
+                          <button type="submit" class="btn btn-success pull-left" name="form1">Mettre à jour</button>
                         </div>
                     </div>
                 </div>
@@ -140,14 +140,14 @@ foreach ($result as $row) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this item?
+                Voulez-vous vraiment supprimer cet élément ?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

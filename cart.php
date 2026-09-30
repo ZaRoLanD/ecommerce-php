@@ -49,18 +49,18 @@ if(isset($_POST['form1'])) {
         }
         if($table_quantity[$temp_index] < $arr2[$i]) {
         	$allow_update = 0;
-            $error_message .= '"'.$arr2[$i].'" items are not available for "'.$arr3[$i].'"\n';
+            $error_message .= '"'.$arr2[$i].'" article(s) non disponible(s) pour "'.$arr3[$i].'"\n';
         } else {
             $_SESSION['cart_p_qty'][$i] = $arr2[$i];
         }
     }
-    $error_message .= '\nOther items quantity are updated successfully!';
+    $error_message .= '\nLes quantités des autres articles ont été mises à jour !';
     ?>
     
     <?php if($allow_update == 0): ?>
     	<script>alert('<?php echo e($error_message); ?>');</script>
 	<?php else: ?>
-		<script>alert('All Items Quantity Update is Successful!');</script>
+		<script>alert('Les quantités ont été mises à jour avec succès !');</script>
 	<?php endif; ?>
     <?php
 
@@ -80,8 +80,8 @@ if(isset($_POST['form1'])) {
 			<div class="col-md-12">
 
                 <?php if(!isset($_SESSION['cart_p_id'])): ?>
-                    <?php echo '<h2 class="text-center">Cart is Empty!!</h2></br>'; ?>
-                    <?php echo '<h4 class="text-center">Add products to the cart in order to view it here.</h4>'; ?>
+                    <?php echo '<h2 class="text-center">Votre panier est vide !</h2></br>'; ?>
+                    <?php echo '<h4 class="text-center">Ajoutez des produits au panier pour le consulter ici.</h4>'; ?>
                 <?php else: ?>
                 <form action="" method="post">
                     <?php $csrf->echoInputField(); ?>
@@ -177,7 +177,7 @@ if(isset($_POST['form1'])) {
                             <td>
                                 <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
                                 <input type="hidden" name="product_name[]" value="<?php echo e($arr_cart_p_name[$i]); ?>">
-                                <input type="number" class="input-text qty text" step="1" min="1" max="" name="quantity[]" value="<?php echo $arr_cart_p_qty[$i]; ?>" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
+                                <input type="number" class="input-text qty text" step="1" min="1" max="" name="quantity[]" value="<?php echo $arr_cart_p_qty[$i]; ?>" title="Quantité" size="4" pattern="[0-9]*" inputmode="numeric">
                             </td>
                             <td class="text-right">
                                 <?php
@@ -192,7 +192,7 @@ if(isset($_POST['form1'])) {
                         </tr>
                         <?php endfor; ?>
                         <tr>
-                            <th colspan="7" class="total-text">Total</th>
+                            <th colspan="7" class="total-text"><?php echo LANG_VALUE_82; ?></th>
                             <th class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $table_total_price; ?></th>
                             <th></th>
                         </tr>

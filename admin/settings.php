@@ -10,13 +10,13 @@ if(isset($_POST['form1'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -38,7 +38,7 @@ if(isset($_POST['form1'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET logo=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Logo is updated successfully.';
+        $success_message = 'Le logo a été mis à jour.';
         
     }
 }
@@ -51,13 +51,13 @@ if(isset($_POST['form2'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -79,7 +79,7 @@ if(isset($_POST['form2'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET favicon=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Favicon is updated successfully.';
+        $success_message = 'Le favicon a été mis à jour.';
         
     }
 }
@@ -90,7 +90,7 @@ if(isset($_POST['form3'])) {
     $statement = $pdo->prepare("UPDATE tbl_settings SET newsletter_on_off=?, footer_copyright=?, contact_address=?, contact_email=?, contact_phone=?, contact_map_iframe=? WHERE id=1");
     $statement->execute(array($_POST['newsletter_on_off'],$_POST['footer_copyright'],$_POST['contact_address'],$_POST['contact_email'],$_POST['contact_phone'],$_POST['contact_map_iframe']));
 
-    $success_message = 'General content settings is updated successfully.';
+    $success_message = 'Les réglages généraux du contenu ont été mis à jour.';
     
 }
 //Email Settings
@@ -99,7 +99,7 @@ if(isset($_POST['form4'])) {
     $statement = $pdo->prepare("UPDATE tbl_settings SET receive_email=?, receive_email_subject=?,receive_email_thank_you_message=?, forget_password_message=? WHERE id=1");
     $statement->execute(array($_POST['receive_email'],$_POST['receive_email_subject'],$_POST['receive_email_thank_you_message'],$_POST['forget_password_message']));
 
-    $success_message = 'Contact form settings information is updated successfully.';
+    $success_message = 'Les réglages du formulaire de contact ont été mis à jour.';
 }
 
 //Can not finish this section, leave it
@@ -108,7 +108,7 @@ if(isset($_POST['form5'])) {
     $statement = $pdo->prepare("UPDATE tbl_settings SET total_featured_product_home=?, total_latest_product_home=?, total_popular_product_home=? WHERE id=1");
     $statement->execute(array($_POST['total_featured_product_home'],$_POST['total_latest_product_home'],$_POST['total_popular_product_home']));
 
-    $success_message = 'Sidebar settings is updated successfully.';
+    $success_message = 'Les réglages de la barre latérale ont été mis à jour.';
 }
 
 
@@ -117,7 +117,7 @@ if(isset($_POST['form6_0'])) {
     $statement = $pdo->prepare("UPDATE tbl_settings SET home_service_on_off=?, home_welcome_on_off=?, home_featured_product_on_off=?, home_latest_product_on_off=?, home_popular_product_on_off=? WHERE id=1");
     $statement->execute(array($_POST['home_service_on_off'],$_POST['home_welcome_on_off'],$_POST['home_featured_product_on_off'],$_POST['home_latest_product_on_off'],$_POST['home_popular_product_on_off']));
 
-    $success_message = 'Section On-Off Settings is updated successfully.';
+    $success_message = 'Les réglages d\'affichage des sections ont été mis à jour.';
 }
 
 
@@ -126,7 +126,7 @@ if(isset($_POST['form6'])) {
     $statement = $pdo->prepare("UPDATE tbl_settings SET meta_title_home=?, meta_keyword_home=?, meta_description_home=? WHERE id=1");
     $statement->execute(array($_POST['meta_title_home'],$_POST['meta_keyword_home'],$_POST['meta_description_home']));
 
-    $success_message = 'Home Meta settings is updated successfully.';
+    $success_message = 'Les métadonnées de la page d\'accueil ont été mises à jour.';
 }
 
 if(isset($_POST['form6_7'])) {
@@ -135,22 +135,22 @@ if(isset($_POST['form6_7'])) {
 
     if(empty($_POST['cta_title'])) {
         $valid = 0;
-        $error_message .= 'Call to Action Title can not be empty<br>';
+        $error_message .= 'Le titre de l\'appel à l\'action ne peut pas être vide<br>';
     }
 
     if(empty($_POST['cta_content'])) {
         $valid = 0;
-        $error_message .= 'Call to Action Content can not be empty<br>';
+        $error_message .= 'Le contenu de l\'appel à l\'action ne peut pas être vide<br>';
     }
 
     if(empty($_POST['cta_read_more_text'])) {
         $valid = 0;
-        $error_message .= 'Call to Action Read More Text can not be empty<br>';
+        $error_message .= 'Le texte « En savoir plus » ne peut pas être vide<br>';
     }
 
     if(empty($_POST['cta_read_more_url'])) {
         $valid = 0;
-        $error_message .= 'Call to Action Read More URL can not be empty<br>';
+        $error_message .= 'L\'URL « En savoir plus » ne peut pas être vide<br>';
     }
 
     $path = $_FILES['cta_photo']['name'];
@@ -161,7 +161,7 @@ if(isset($_POST['form6_7'])) {
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -190,7 +190,7 @@ if(isset($_POST['form6_7'])) {
             $statement->execute(array($_POST['cta_title'],$_POST['cta_content'],$_POST['cta_read_more_text'],$_POST['cta_read_more_url']));
         }
 
-        $success_message = 'Call to Action Data is updated successfully.';
+        $success_message = 'Les données de l\'appel à l\'action ont été mises à jour.';
         
     }
 }
@@ -201,12 +201,12 @@ if(isset($_POST['form6_4'])) {
 
     if(empty($_POST['featured_product_title'])) {
         $valid = 0;
-        $error_message .= 'Featured Product Title can not be empty<br>';
+        $error_message .= 'Le titre des produits en vedette ne peut pas être vide<br>';
     }
 
     if(empty($_POST['featured_product_subtitle'])) {
         $valid = 0;
-        $error_message .= 'Featured Product SubTitle can not be empty<br>';
+        $error_message .= 'Le sous-titre des produits en vedette ne peut pas être vide<br>';
     }
 
     if($valid == 1) {
@@ -215,7 +215,7 @@ if(isset($_POST['form6_4'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET featured_product_title=?,featured_product_subtitle=? WHERE id=1");
         $statement->execute(array($_POST['featured_product_title'],$_POST['featured_product_subtitle']));
 
-        $success_message = 'Featured Product Data is updated successfully.';
+        $success_message = 'Les données des produits en vedette ont été mises à jour.';
         
     }
 }
@@ -226,12 +226,12 @@ if(isset($_POST['form6_5'])) {
 
     if(empty($_POST['latest_product_title'])) {
         $valid = 0;
-        $error_message .= 'Latest Product Title can not be empty<br>';
+        $error_message .= 'Le titre des nouveautés ne peut pas être vide<br>';
     }
 
     if(empty($_POST['latest_product_subtitle'])) {
         $valid = 0;
-        $error_message .= 'Latest Product SubTitle can not be empty<br>';
+        $error_message .= 'Le sous-titre des nouveautés ne peut pas être vide<br>';
     }
 
     if($valid == 1) {
@@ -240,7 +240,7 @@ if(isset($_POST['form6_5'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET latest_product_title=?,latest_product_subtitle=? WHERE id=1");
         $statement->execute(array($_POST['latest_product_title'],$_POST['latest_product_subtitle']));
 
-        $success_message = 'Latest Product Data is updated successfully.';
+        $success_message = 'Les données des nouveautés ont été mises à jour.';
         
     }
 }
@@ -251,12 +251,12 @@ if(isset($_POST['form6_6'])) {
 
     if(empty($_POST['popular_product_title'])) {
         $valid = 0;
-        $error_message .= 'Popular Product Title can not be empty<br>';
+        $error_message .= 'Le titre des produits populaires ne peut pas être vide<br>';
     }
 
     if(empty($_POST['popular_product_subtitle'])) {
         $valid = 0;
-        $error_message .= 'Popular Product SubTitle can not be empty<br>';
+        $error_message .= 'Le sous-titre des produits populaires ne peut pas être vide<br>';
     }
 
     if($valid == 1) {
@@ -265,7 +265,7 @@ if(isset($_POST['form6_6'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET popular_product_title=?,popular_product_subtitle=? WHERE id=1");
         $statement->execute(array($_POST['popular_product_title'],$_POST['popular_product_subtitle']));
 
-        $success_message = 'Popular Product Data is updated successfully.';
+        $success_message = 'Les données des produits populaires ont été mises à jour.';
         
     }
 }
@@ -276,12 +276,12 @@ if(isset($_POST['form6_1'])) {
 
     if(empty($_POST['testimonial_title'])) {
         $valid = 0;
-        $error_message .= 'Testimonial Title can not be empty<br>';
+        $error_message .= 'Le titre des témoignages ne peut pas être vide<br>';
     }
 
     if(empty($_POST['testimonial_subtitle'])) {
         $valid = 0;
-        $error_message .= 'Testimonial SubTitle can not be empty<br>';
+        $error_message .= 'Le sous-titre des témoignages ne peut pas être vide<br>';
     }
 
     $path = $_FILES['testimonial_photo']['name'];
@@ -292,7 +292,7 @@ if(isset($_POST['form6_1'])) {
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -322,7 +322,7 @@ if(isset($_POST['form6_1'])) {
             $statement->execute(array($_POST['testimonial_title'],$_POST['testimonial_subtitle']));
         }
 
-        $success_message = 'Testimonial Data is updated successfully.';
+        $success_message = 'Les données des témoignages ont été mises à jour.';
         
     }
 }
@@ -334,12 +334,12 @@ if(isset($_POST['form6_2'])) {
 
     if(empty($_POST['blog_title'])) {
         $valid = 0;
-        $error_message .= 'Blog Title can not be empty<br>';
+        $error_message .= 'Le titre du blog ne peut pas être vide<br>';
     }
 
     if(empty($_POST['blog_subtitle'])) {
         $valid = 0;
-        $error_message .= 'Blog SubTitle can not be empty<br>';
+        $error_message .= 'Le sous-titre du blog ne peut pas être vide<br>';
     }
 
     if($valid == 1) {
@@ -348,7 +348,7 @@ if(isset($_POST['form6_2'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET blog_title=?,blog_subtitle=? WHERE id=1");
         $statement->execute(array($_POST['blog_title'],$_POST['blog_subtitle']));
 
-        $success_message = 'Blog Data is updated successfully.';
+        $success_message = 'Les données du blog ont été mises à jour.';
         
     }
 }
@@ -360,7 +360,7 @@ if(isset($_POST['form6_3'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET newsletter_text=? WHERE id=1");
         $statement->execute(array($_POST['newsletter_text']));
         
-        $success_message = 'Newsletter Text is updated successfully.';
+        $success_message = 'Le texte de la newsletter a été mis à jour.';
  
 }
 
@@ -372,13 +372,13 @@ if(isset($_POST['form7_1'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -400,7 +400,7 @@ if(isset($_POST['form7_1'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_login=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Login Page Banner is updated successfully.';
+        $success_message = 'La bannière de connexion a été mise à jour.';
         
     }
 }
@@ -413,13 +413,13 @@ if(isset($_POST['form7_2'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -441,7 +441,7 @@ if(isset($_POST['form7_2'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_registration=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Registration Page Banner is updated successfully.';
+        $success_message = 'La bannière d\'inscription a été mise à jour.';
         
     }
 }
@@ -454,13 +454,13 @@ if(isset($_POST['form7_3'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -482,7 +482,7 @@ if(isset($_POST['form7_3'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_forget_password=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Forget Password Page Banner is updated successfully.';
+        $success_message = 'La bannière « Mot de passe oublié » a été mise à jour.';
         
     }
 }
@@ -495,13 +495,13 @@ if(isset($_POST['form7_4'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -523,7 +523,7 @@ if(isset($_POST['form7_4'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_reset_password=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Reset Password Page Banner is updated successfully.';
+        $success_message = 'La bannière de réinitialisation du mot de passe a été mise à jour.';
         
     }
 }
@@ -537,13 +537,13 @@ if(isset($_POST['form7_6'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -565,7 +565,7 @@ if(isset($_POST['form7_6'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_search=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Search Page Banner is updated successfully.';
+        $success_message = 'La bannière de recherche a été mise à jour.';
         
     }
 }
@@ -578,13 +578,13 @@ if(isset($_POST['form7_7'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -606,7 +606,7 @@ if(isset($_POST['form7_7'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_cart=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Cart Page Banner is updated successfully.';
+        $success_message = 'La bannière du panier a été mise à jour.';
         
     }
 }
@@ -619,13 +619,13 @@ if(isset($_POST['form7_8'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -647,7 +647,7 @@ if(isset($_POST['form7_8'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_checkout=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Checkout Page Banner is updated successfully.';
+        $success_message = 'La bannière de la commande a été mise à jour.';
         
     }
 }
@@ -660,13 +660,13 @@ if(isset($_POST['form7_9'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 
@@ -688,7 +688,7 @@ if(isset($_POST['form7_9'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_product_category=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Product Category Page Banner is updated successfully.';
+        $success_message = 'La bannière des catégories a été mise à jour.';
         
     }
 }
@@ -701,13 +701,13 @@ if(isset($_POST['form7_10'])) {
 
     if($path == '') {
         $valid = 0;
-        $error_message .= 'You must have to select a photo<br>';
+        $error_message .= 'Vous devez sélectionner une photo<br>';
     } else {
         $ext = pathinfo( $path, PATHINFO_EXTENSION );
         $file_name = basename( $path, '.' . $ext );
         if( $ext!='jpg' && $ext!='png' && $ext!='jpeg' && $ext!='gif' ) {
             $valid = 0;
-            $error_message .= 'You must have to upload jpg, jpeg, gif or png file<br>';
+            $error_message .= 'Vous devez téléverser un fichier jpg, jpeg, gif ou png<br>';
         }
     }
 /*
@@ -729,7 +729,7 @@ if(isset($_POST['form7_10'])) {
         $statement = $pdo->prepare("UPDATE tbl_settings SET banner_blog=? WHERE id=1");
         $statement->execute(array($final_name));
 
-        $success_message = 'Blog Page Banner is updated successfully.';
+        $success_message = 'La bannière du blog a été mise à jour.';
         
     } */
 }
@@ -739,7 +739,7 @@ if(isset($_POST['form9'])) {
     $statement = $pdo->prepare("UPDATE tbl_settings SET paypal_email=?, bank_detail=? WHERE id=1");
     $statement->execute(array($_POST['paypal_email'],$_POST['bank_detail']));
 
-    $success_message = 'Payment Settings is updated successfully.';
+    $success_message = 'Les réglages de paiement ont été mis à jour.';
 }
 
 if(isset($_POST['form10'])) {
@@ -747,7 +747,7 @@ if(isset($_POST['form10'])) {
     $statement = $pdo->prepare("UPDATE tbl_settings SET before_head=?, after_body=?, before_body=? WHERE id=1");
     $statement->execute(array($_POST['before_head'],$_POST['after_body'],$_POST['before_body']));
 
-    $success_message = 'Head and Body Script is updated successfully.';
+    $success_message = 'Les scripts head/body ont été mis à jour.';
 }
 
 /*
@@ -772,13 +772,13 @@ if(isset($_POST['form11'])) {
     						$_POST['ads_category_sidebar_on_off']
     					));
 
-    $success_message = 'Advertisement On-Off Section is updated successfully.';
+    $success_message = 'Les réglages des publicités ont été mis à jour.';
 } */
 ?>
 
 <section class="content-header">
     <div class="content-header-left">
-        <h1>Website Settings</h1>
+        <h1>Réglages du site</h1>
     </div>
 </section>
 
@@ -909,13 +909,13 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Existing Photo</label>
+                                        <label for="" class="col-sm-2 control-label">Photo actuelle</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <img src="../assets/uploads/<?php echo $logo; ?>" class="existing-photo" style="height:80px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">New Photo</label>
+                                        <label for="" class="col-sm-2 control-label">Nouvelle photo</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <input type="file" name="photo_logo">
                                         </div>
@@ -940,13 +940,13 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Existing Photo</label>
+                                        <label for="" class="col-sm-2 control-label">Photo actuelle</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <img src="../assets/uploads/<?php echo $favicon; ?>" class="existing-photo" style="height:40px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">New Photo</label>
+                                        <label for="" class="col-sm-2 control-label">Nouvelle photo</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <input type="file" name="photo_favicon">
                                         </div>
@@ -969,7 +969,7 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Newsletter Section </label>
+                                        <label for="" class="col-sm-2 control-label">Section Newsletter </label>
                                         <div class="col-sm-3">
                                             <select name="newsletter_on_off" class="form-control" style="width:auto;">
                                                 <option value="1" <?php if($newsletter_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -979,37 +979,37 @@ foreach ($result as $row) {
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Footer - Copyright </label>
+                                        <label for="" class="col-sm-2 control-label">Pied de page - Copyright </label>
                                         <div class="col-sm-9">
                                             <input class="form-control" type="text" name="footer_copyright" value="<?php echo $footer_copyright; ?>">
                                         </div>
                                     </div>                              
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Contact Address </label>
+                                        <label for="" class="col-sm-2 control-label">Adresse de contact </label>
                                         <div class="col-sm-6">
                                             <textarea class="form-control" name="contact_address" style="height:140px;"><?php echo $contact_address; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Contact Email </label>
+                                        <label for="" class="col-sm-2 control-label">E-mail de contact </label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="contact_email" value="<?php echo $contact_email; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Contact Phone Number </label>
+                                        <label for="" class="col-sm-2 control-label">Téléphone de contact </label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="contact_phone" value="<?php echo $contact_phone; ?>">
                                         </div>
                                     </div>
                                  <!-- <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Contact Fax Number </label>
+                                        <label for="" class="col-sm-2 control-label">Numéro de fax </label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" name="contact_fax" value="<?php echo $contact_fax; ?>">
                                         </div>
                                     </div>-->
                                     <div class="form-group">
-                                        <label for="" class="col-sm-2 control-label">Contact Map iFrame </label>
+                                        <label for="" class="col-sm-2 control-label">Paniere (iFrame) </label>
                                         <div class="col-sm-9">
                                             <textarea class="form-control" name="contact_map_iframe" style="height:200px;"><?php echo $contact_map_iframe; ?></textarea>
                                         </div>
@@ -1017,7 +1017,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-2 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form3">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form3">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1033,25 +1033,25 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Contact Email Address</label>
+                                        <label for="" class="col-sm-3 control-label">E-mail de contact</label>
                                         <div class="col-sm-4">
                                             <input type="text" class="form-control" name="receive_email" value="<?php echo $receive_email; ?>">
                                         </div>
                                     </div>                                  
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Contact Email Subject</label>
+                                        <label for="" class="col-sm-3 control-label">Sujet des e-mails de contact</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="receive_email_subject" value="<?php echo $receive_email_subject; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Contact Email Thank you message</label>
+                                        <label for="" class="col-sm-3 control-label">Message de remerciement (contact)</label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" name="receive_email_thank_you_message"><?php echo $receive_email_thank_you_message; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Forget password Message</label>
+                                        <label for="" class="col-sm-3 control-label">Message « Mot de passe oublié »</label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" name="forget_password_message"><?php echo $forget_password_message; ?></textarea>
                                         </div>
@@ -1059,7 +1059,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-5">
-                                            <button type="submit" class="btn btn-success pull-left" name="form4">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form4">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1075,43 +1075,43 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <!--<div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Footer (How many recent posts?)<span>*</span></label>
+                                        <label for="" class="col-sm-4 control-label">Pied de page (combien d'articles récents ?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_recent_post_footer" value="<?php echo $total_recent_post_footer; ?>">
                                         </div>
                                     </div>      
                                     <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Footer (How many popular posts?)<span>*</span></label>
+                                        <label for="" class="col-sm-4 control-label">Pied de page (combien d'articles populaires ?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_popular_post_footer" value="<?php echo $total_popular_post_footer; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Sidebar (How many recent posts?)<span>*</span></label>
+                                        <label for="" class="col-sm-4 control-label">Barre latérale (combien d'articles récents ?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_recent_post_sidebar" value="<?php echo $total_recent_post_sidebar; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Sidebar (How many popular posts?)<span>*</span></label>
+                                        <label for="" class="col-sm-4 control-label">Barre latérale (combien d'articles populaires ?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_popular_post_sidebar" value="<?php echo $total_popular_post_sidebar; ?>">
                                         </div>
                                     </div>-->
                                     <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Home Page (How many featured product?)<span>*</span></label>
+                                        <label for="" class="col-sm-4 control-label">Accueil (combien de produits en vedette ?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_featured_product_home" value="<?php echo $total_featured_product_home; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Home Page (How many latest product?)<span>*</span></label>
+                                        <label for="" class="col-sm-4 control-label">Accueil (combien de nouveautés ?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_latest_product_home" value="<?php echo $total_latest_product_home; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-4 control-label">Home Page (How many popular product?)<span>*</span></label>
+                                        <label for="" class="col-sm-4 control-label">Accueil (combien de produits populaires ?)<span>*</span></label>
                                         <div class="col-sm-2">
                                             <input type="text" class="form-control" name="total_popular_product_home" value="<?php echo $total_popular_product_home; ?>">
                                         </div>
@@ -1119,7 +1119,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-4 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form5">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form5">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1140,7 +1140,7 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Service Section </label>
+                                        <label for="" class="col-sm-3 control-label">Section Services </label>
                                         <div class="col-sm-4">
                                             <select name="home_service_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($home_service_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1149,7 +1149,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>      
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Welcome Section </label>
+                                        <label for="" class="col-sm-3 control-label">Section Bienvenue </label>
                                         <div class="col-sm-4">
                                             <select name="home_welcome_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($home_welcome_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1158,7 +1158,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Featured Product Section </label>
+                                        <label for="" class="col-sm-3 control-label">Section Produits en vedette </label>
                                         <div class="col-sm-4">
                                             <select name="home_featured_product_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($home_featured_product_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1167,7 +1167,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Latest Product Section </label>
+                                        <label for="" class="col-sm-3 control-label">Section Nouveautés </label>
                                         <div class="col-sm-4">
                                             <select name="home_latest_product_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($home_latest_product_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1176,7 +1176,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Popular Product Section </label>
+                                        <label for="" class="col-sm-3 control-label">Section Produits populaires </label>
                                         <div class="col-sm-4">
                                             <select name="home_popular_product_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($home_popular_product_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1185,7 +1185,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                    <!-- <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Testimonial Section </label>
+                                        <label for="" class="col-sm-3 control-label">Section Témoignages </label>
                                         <div class="col-sm-4">
                                             <select name="home_testimonial_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($home_testimonial_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1194,7 +1194,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Blog Section </label>
+                                        <label for="" class="col-sm-3 control-label">Section Blog </label>
                                         <div class="col-sm-4">
                                             <select name="home_blog_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($home_blog_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1206,7 +1206,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_0">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_0">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1219,19 +1219,19 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Meta Title </label>
+                                        <label for="" class="col-sm-3 control-label">Méta-titre </label>
                                         <div class="col-sm-8">
                                             <input type="text" name="meta_title_home" class="form-control" value="<?php echo $meta_title_home ?>">
                                         </div>
                                     </div>      
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Meta Keyword </label>
+                                        <label for="" class="col-sm-3 control-label">Méta-mots-clés </label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" name="meta_keyword_home" style="height:100px;"><?php echo $meta_keyword_home ?></textarea>
                                         </div>
                                     </div>  
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Meta Description </label>
+                                        <label for="" class="col-sm-3 control-label">Méta-description </label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" name="meta_description_home" style="height:200px;"><?php echo $meta_description_home ?></textarea>
                                         </div>
@@ -1239,7 +1239,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1253,37 +1253,37 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">                                          
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Title<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Titre<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="cta_title" value="<?php echo $cta_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Content<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Contenu<span>*</span></label>
                                         <div class="col-sm-8">
                                             <textarea name="cta_content" class="form-control" cols="30" rows="10" style="height:120px;"><?php echo $cta_content; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Read More Text<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Texte « En savoir plus »<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="cta_read_more_text" value="<?php echo $cta_read_more_text; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Read More URL<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">URL « En savoir plus »<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="cta_read_more_url" value="<?php echo $cta_read_more_url; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Existing Call to Action Background</label>
+                                        <label for="" class="col-sm-3 control-label">Fond de l'appel à l'action (actuel)</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <img src="../assets/uploads/<?php echo $cta_photo; ?>" class="existing-photo" style="height:80px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">New Background</label>
+                                        <label for="" class="col-sm-3 control-label">Nouveau fond</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <input type="file" name="cta_photo">
                                         </div>
@@ -1291,7 +1291,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_7">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_7">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1302,18 +1302,18 @@ foreach ($result as $row) {
 
 
 
-                            <h3>Featured Product Section</h3>
+                            <h3>Section Produits en vedette</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">                                          
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Featured Product Title<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Titre (Produits en vedette)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="featured_product_title" value="<?php echo $featured_product_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Featured Product SubTitle<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Sous-titre (Produits en vedette)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="featured_product_subtitle" value="<?php echo $featured_product_subtitle; ?>">
                                         </div>
@@ -1321,7 +1321,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_4">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_4">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1329,18 +1329,18 @@ foreach ($result as $row) {
                             </form>
 
 
-                            <h3>Latest Product Section</h3>
+                            <h3>Section Nouveautés</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">                                          
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Latest Product Title<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Titre (Nouveautés)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="latest_product_title" value="<?php echo $latest_product_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Latest Product SubTitle<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Sous-titre (Nouveautés)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="latest_product_subtitle" value="<?php echo $latest_product_subtitle; ?>">
                                         </div>
@@ -1348,7 +1348,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_5">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_5">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1356,18 +1356,18 @@ foreach ($result as $row) {
                             </form>
 
 
-                            <h3>Popular Product Section</h3>
+                            <h3>Section Produits populaires</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">                                          
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Popular Product Title<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Titre (Produits populaires)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="popular_product_title" value="<?php echo $popular_product_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Popular Product SubTitle<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Sous-titre (Produits populaires)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="popular_product_subtitle" value="<?php echo $popular_product_subtitle; ?>">
                                         </div>
@@ -1375,7 +1375,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_6">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_6">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1384,30 +1384,30 @@ foreach ($result as $row) {
 
 
                             <!--
-                            <h3>Testimonial Section</h3>
+                            <h3>Section Témoignages</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">                                          
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Testimonial Section Title<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Titre (Témoignages)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="testimonial_title" value="<?php echo $testimonial_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Testimonial Section SubTitle<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Sous-titre (Témoignages)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="testimonial_subtitle" value="<?php echo $testimonial_subtitle; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Existing Testimonial Background</label>
+                                        <label for="" class="col-sm-3 control-label">Fond des témoignages (actuel)</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <img src="../assets/uploads/<?php echo $testimonial_photo; ?>" class="existing-photo" style="height:80px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">New Background</label>
+                                        <label for="" class="col-sm-3 control-label">Nouveau fond</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
                                             <input type="file" name="testimonial_photo">
                                         </div>
@@ -1415,7 +1415,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_1">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_1">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1423,18 +1423,18 @@ foreach ($result as $row) {
                             </form>
 
 
-                            <h3>Blog Section</h3>
+                            <h3>Section Blog</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">                                          
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Blog Section Title<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Titre (Blog)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="blog_title" value="<?php echo $blog_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Blog Section SubTitle<span>*</span></label>
+                                        <label for="" class="col-sm-3 control-label">Sous-titre (Blog)<span>*</span></label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="blog_subtitle" value="<?php echo $blog_subtitle; ?>">
                                         </div>
@@ -1442,7 +1442,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_2">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_2">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1452,12 +1452,12 @@ foreach ($result as $row) {
                                     -->
                             
 
-                            <h3>Newsletter Section</h3>
+                            <h3>Section Newsletter</h3>
                             <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">                                          
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Newsletter Text</label>
+                                        <label for="" class="col-sm-3 control-label">Texte de la newsletter</label>
                                         <div class="col-sm-8">
                                             <textarea name="newsletter_text" class="form-control" cols="30" rows="10" style="height: 120px;"><?php echo $newsletter_text; ?></textarea>
                                         </div>
@@ -1465,7 +1465,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form6_3">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form6_3">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1513,13 +1513,13 @@ foreach ($result as $row) {
                                 <tr>
                                     <form action="" method="post" enctype="multipart/form-data">
                                     <td style="width:50%">
-                                        <h4>Existing Forget Password Page Banner</h4>
+                                        <h4>Existing Mot de passe oublié Page Banner</h4>
                                         <p>
                                             <img src="<?php echo '../assets/uploads/'.$banner_forget_password; ?>" alt="" style="width: 100%;height:auto;">   
                                         </p>                                        
                                     </td>
                                     <td style="width:50%">
-                                        <h4>Change Forget Password Page Banner</h4>
+                                        <h4>Change Mot de passe oublié Page Banner</h4>
                                         Select Photo<input type="file" name="photo">
                                         <input type="submit" class="btn btn-primary btn-xs" value="Change" style="margin-top:10px;" name="form7_3">
                                     </td>
@@ -1578,13 +1578,13 @@ foreach ($result as $row) {
                                 <tr>
                                     <form action="" method="post" enctype="multipart/form-data">
                                     <td style="width:50%">
-                                        <h4>Existing Checkout Page Banner</h4>
+                                        <h4>Existing Commander Page Banner</h4>
                                         <p>
                                             <img src="<?php echo '../assets/uploads/'.$banner_checkout; ?>" alt="" style="width: 100%;height:auto;">  
                                         </p>                                        
                                     </td>
                                     <td style="width:50%">
-                                        <h4>Change Checkout Page Banner</h4>
+                                        <h4>Change Commander Page Banner</h4>
                                         Select Photo<input type="file" name="photo">
                                         <input type="submit" class="btn btn-primary btn-xs" value="Change" style="margin-top:10px;" name="form7_8">
                                     </td>
@@ -1638,25 +1638,25 @@ foreach ($result as $row) {
                                 <div class="box box-info">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="" class="col-sm-2 control-label">PayPal - Business Email </label>
+                                            <label for="" class="col-sm-2 control-label">PayPal - E-mail marchand </label>
                                             <div class="col-sm-5">
                                                 <input type="text" name="paypal_email" class="form-control" value="<?php echo $paypal_email; ?>">
                                             </div>
                                         </div>
                                       <!-- <div class="form-group">
-                                            <label for="" class="col-sm-2 control-label">Stripe - Public Key </label>
+                                            <label for="" class="col-sm-2 control-label">Stripe - Clé publique </label>
                                             <div class="col-sm-5">
                                                 <input type="text" name="stripe_public_key" class="form-control" value="<?php echo $stripe_public_key; ?>">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-sm-2 control-label">Stripe - Secret Key </label>
+                                            <label for="" class="col-sm-2 control-label">Stripe - Clé secrète </label>
                                             <div class="col-sm-5">
                                                 <input type="text" name="stripe_secret_key" class="form-control" value="<?php echo $stripe_secret_key; ?>">
                                             </div>
                                         </div> -->
                                         <div class="form-group">
-                                            <label for="" class="col-sm-2 control-label">Bank Information </label>
+                                            <label for="" class="col-sm-2 control-label">Informations bancaires </label>
                                             <div class="col-sm-5">
                                                 <textarea name="bank_detail" class="form-control" cols="30" rows="10"><?php echo $bank_detail; ?></textarea>
                                             </div>
@@ -1664,7 +1664,7 @@ foreach ($result as $row) {
                                         <div class="form-group">
                                             <label for="" class="col-sm-2 control-label"></label>
                                             <div class="col-sm-6">
-                                                <button type="submit" class="btn btn-success pull-left" name="form9">Update</button>
+                                                <button type="submit" class="btn btn-success pull-left" name="form9">Mettre à jour</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1678,19 +1678,19 @@ foreach ($result as $row) {
                                 <div class="box box-info">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label for="" class="col-sm-2 control-label">Code before &lt;/head&gt; tag </label>
+                                            <label for="" class="col-sm-2 control-label">Code avant la balise &lt;/head&gt; </label>
                                             <div class="col-sm-8">
                                                 <textarea name="before_head" class="form-control" cols="30" rows="10"><?php echo $before_head; ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-sm-2 control-label">Code after &lt;body&gt; tag </label>
+                                            <label for="" class="col-sm-2 control-label">Code après la balise &lt;body&gt; </label>
                                             <div class="col-sm-8">
                                                 <textarea name="after_body" class="form-control" cols="30" rows="10"><?php echo $after_body; ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="" class="col-sm-2 control-label">Code before &lt;/body&gt; tag </label>
+                                            <label for="" class="col-sm-2 control-label">Code avant la balise &lt;/body&gt; </label>
                                             <div class="col-sm-8">
                                                 <textarea name="before_body" class="form-control" cols="30" rows="10"><?php echo $before_body; ?></textarea>
                                             </div>
@@ -1698,7 +1698,7 @@ foreach ($result as $row) {
                                         <div class="form-group">
                                             <label for="" class="col-sm-2 control-label"></label>
                                             <div class="col-sm-6">
-                                                <button type="submit" class="btn btn-success pull-left" name="form10">Update</button>
+                                                <button type="submit" class="btn btn-success pull-left" name="form10">Mettre à jour</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1714,7 +1714,7 @@ foreach ($result as $row) {
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Above Welcome </label>
+                                        <label for="" class="col-sm-3 control-label">Au-dessus du bloc de bienvenue </label>
                                         <div class="col-sm-4">
                                             <select name="ads_above_welcome_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($ads_above_welcome_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1723,7 +1723,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>      
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Above Featured Product </label>
+                                        <label for="" class="col-sm-3 control-label">Au-dessus des produits en vedette </label>
                                         <div class="col-sm-4">
                                             <select name="ads_above_featured_product_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($ads_above_featured_product_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1732,7 +1732,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Above Latest Product </label>
+                                        <label for="" class="col-sm-3 control-label">Au-dessus des nouveautés </label>
                                         <div class="col-sm-4">
                                             <select name="ads_above_latest_product_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($ads_above_latest_product_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1741,7 +1741,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Above Popular Product </label>
+                                        <label for="" class="col-sm-3 control-label">Au-dessus des produits populaires </label>
                                         <div class="col-sm-4">
                                             <select name="ads_above_popular_product_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($ads_above_popular_product_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1750,7 +1750,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Above Testimonial </label>
+                                        <label for="" class="col-sm-3 control-label">Au-dessus des témoignages </label>
                                         <div class="col-sm-4">
                                             <select name="ads_above_testimonial_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($ads_above_testimonial_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1759,7 +1759,7 @@ foreach ($result as $row) {
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="" class="col-sm-3 control-label">Category Page Sidebar </label>
+                                        <label for="" class="col-sm-3 control-label">Barre latérale des catégories </label>
                                         <div class="col-sm-4">
                                             <select name="ads_category_sidebar_on_off" class="form-control" style="width:auto;">
                                             	<option value="1" <?php if($ads_category_sidebar_on_off == 1) {echo 'selected';} ?>>On</option>
@@ -1770,7 +1770,7 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form11">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left" name="form11">Mettre à jour</button>
                                         </div>
                                     </div>
                                 </div>

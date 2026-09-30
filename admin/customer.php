@@ -2,7 +2,7 @@
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>View Customers</h1>
+		<h1>Voir les clients</h1>
 	</div>
 </section>
 
@@ -15,11 +15,11 @@
 						<thead>
 							<tr>
 								<th width="10">#</th>
-								<th width="180">Name</th>
-								<th width="150">Email Address</th>
-								<th width="180">Country, City, State</th>
-								<th>Status</th>
-								<th width="100">Change Status</th>
+								<th width="180">Nom</th>
+								<th width="150">Adresse e-mail</th>
+								<th width="180">Pays, City, State</th>
+								<th>Statut</th>
+								<th width="100">Changer le statut</th>
 								<th width="100">Action</th>
 							</tr>
 						</thead>
@@ -50,7 +50,7 @@
 										<a href="customer-change-status.php?id=<?php echo $row['cust_id']; ?>" class="btn btn-success btn-xs">Change Status</a>
 									</td>
 									<td>
-										<a href="#" class="btn btn-danger btn-xs" data-href="customer-delete.php?id=<?php echo $row['cust_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
+										<a href="#" class="btn btn-danger btn-xs" data-href="customer-delete.php?id=<?php echo $row['cust_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Supprimer</a>
 									</td>
 								</tr>
 								<?php
@@ -72,14 +72,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                <p>Are you sure want to delete this item?</p>
+                <p>Voulez-vous vraiment supprimer cet élément ?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

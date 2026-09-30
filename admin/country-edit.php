@@ -6,10 +6,10 @@ if(isset($_POST['form1'])) {
 
     if(empty($_POST['country_name'])) {
         $valid = 0;
-        $error_message .= "Country Name can not be empty<br>";
+        $error_message .= "Nom du pays can not be empty<br>";
     } else {
-		// Duplicate Country checking
-    	// current Country name that is in the database
+		// Duplicate Pays checking
+    	// current Pays name that is in the database
     	$statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
 		$statement->execute(array($_REQUEST['id']));
 		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ if(isset($_POST['form1'])) {
     	$total = $statement->rowCount();							
     	if($total) {
     		$valid = 0;
-        	$error_message .= 'Country name already exists<br>';
+        	$error_message .= 'Ce nom de pays existe déjà<br>';
     	}
     }
 
@@ -31,7 +31,7 @@ if(isset($_POST['form1'])) {
 		$statement = $pdo->prepare("UPDATE tbl_country SET country_name=? WHERE country_id=?");
 		$statement->execute(array($_POST['country_name'],$_REQUEST['id']));
 
-    	$success_message = 'Country is updated successfully.';
+    	$success_message = 'Le pays a été mis à jour.';
     }
 }
 ?>
@@ -55,7 +55,7 @@ if(!isset($_REQUEST['id'])) {
 
 <section class="content-header">
 	<div class="content-header-left">
-		<h1>Edit Country</h1>
+		<h1>Modifier le pays</h1>
 	</div>
 	<div class="content-header-right">
 		<a href="country.php" class="btn btn-primary btn-sm">View All</a>
@@ -96,7 +96,7 @@ foreach ($result as $row) {
 
             <div class="box-body">
                 <div class="form-group">
-                    <label for="" class="col-sm-2 control-label">Country Name <span>*</span></label>
+                    <label for="" class="col-sm-2 control-label">Nom du pays <span>*</span></label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" name="country_name" value="<?php echo $country_name; ?>">
                     </div>
@@ -104,7 +104,7 @@ foreach ($result as $row) {
                 <div class="form-group">
                 	<label for="" class="col-sm-2 control-label"></label>
                     <div class="col-sm-6">
-                      <button type="submit" class="btn btn-success pull-left" name="form1">Update</button>
+                      <button type="submit" class="btn btn-success pull-left" name="form1">Mettre à jour</button>
                     </div>
                 </div>
 
@@ -126,14 +126,14 @@ foreach ($result as $row) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirmation de suppression</h4>
             </div>
             <div class="modal-body">
-                Are you sure want to delete this item?
+                Voulez-vous vraiment supprimer cet élément ?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-danger btn-ok">Delete</a>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+                <a class="btn btn-danger btn-ok">Supprimer</a>
             </div>
         </div>
     </div>

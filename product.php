@@ -122,7 +122,7 @@ if(isset($_POST['form_add_to_cart'])) {
 		$current_p_qty = $row['p_qty'];
 	}
 	if($_POST['p_qty'] > $current_p_qty):
-		$temp_msg = 'Sorry! There are only '.$current_p_qty.' item(s) in stock';
+		$temp_msg = 'Désolé ! Il ne reste que '.$current_p_qty.' article(s) en stock';
 		?>
 		<script type="text/javascript">alert('<?php echo $temp_msg; ?>');</script>
 		<?php
@@ -175,7 +175,7 @@ if(isset($_POST['form_add_to_cart'])) {
             }
         }
         if($added == 1) {
-           $error_message1 = 'This product is already added to the shopping cart.';
+           $error_message1 = 'Ce produit est déjà dans votre panier.';
         } else {
 
             $i=0;
@@ -224,7 +224,7 @@ if(isset($_POST['form_add_to_cart'])) {
             $_SESSION['cart_p_name'][$new_key] = $p_name;
             $_SESSION['cart_p_featured_photo'][$new_key] = $p_featured_photo;
 
-            $success_message1 = 'Product is added to the cart successfully!';
+            $success_message1 = 'Le produit a bien été ajouté au panier !';
         }
         
     }
@@ -270,7 +270,7 @@ if(isset($_POST['form_add_to_cart'])) {
         $_SESSION['cart_p_name'][1] = $p_name;
         $_SESSION['cart_p_featured_photo'][1] = $p_featured_photo;
 
-        $success_message1 = 'Product is added to the cart successfully!';
+        $success_message1 = 'Le produit a bien été ajouté au panier !';
     }
 	endif;
 }
@@ -293,7 +293,7 @@ if($success_message1 != '') {
 			<div class="col-md-12">
                 <div class="breadcrumb mb_30">
                     <ul>
-                        <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>">Accueil</a></li>
                         <li>></li>
                         <li><a href="<?php echo BASE_URL.'product-category.php?id='.$tcat_id.'&type=top-category' ?>"><?php echo e($tcat_name); ?></a></li>
                         <li>></li>
@@ -469,7 +469,7 @@ if($success_message1 != '') {
                             <input type="hidden" name="p_featured_photo" value="<?php echo $p_featured_photo; ?>">
 							<div class="p-quantity">
                                 <?php echo LANG_VALUE_55; ?> <br>
-								<input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
+								<input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Quantité" size="4" pattern="[0-9]*" inputmode="numeric">
 							</div>
 							<div class="btn-cart btn-cart1">
                                 <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
@@ -623,7 +623,7 @@ if($success_message1 != '') {
                                                 <input type="radio" name="rating" class="rating" value="5" checked>
                                             </div>                                            
                                             <div class="form-group">
-                                                <textarea name="comment" class="form-control" cols="30" rows="10" placeholder="Write your comment (optional)" style="height:100px;"></textarea>
+                                                <textarea name="comment" class="form-control" cols="30" rows="10" placeholder="Écrivez votre commentaire (facultatif)" style="height:100px;"></textarea>
                                             </div>
                                             <input type="submit" class="btn btn-default" name="form_review" value="<?php echo LANG_VALUE_67; ?>">
                                             </form>

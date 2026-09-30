@@ -80,13 +80,13 @@ foreach ($result as $row)
     <!-- Slider Left Control -->
     <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
         <span class="fa fa-angle-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Précédent</span>
     </a>
 
     <!-- Slider Right Control -->
     <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
         <span class="fa fa-angle-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Suivant</span>
     </a>
 
 </div>
@@ -165,11 +165,11 @@ foreach ($result as $row)
                                 <?php if($row['p_qty'] == 0): ?>
                                     <div class="out-of-stock">
                                         <div class="inner">
-                                            Out Of Stock
+                                            Rupture de stock
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_154; ?></a></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -229,11 +229,11 @@ foreach ($result as $row)
                                 <?php if($row['p_qty'] == 0): ?>
                                     <div class="out-of-stock">
                                         <div class="inner">
-                                            Out Of Stock
+                                            Rupture de stock
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_154; ?></a></p>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -296,11 +296,11 @@ foreach ($result as $row)
                                 <?php if($row['p_qty'] == 0): ?>
                                     <div class="out-of-stock">
                                         <div class="inner">
-                                            Out Of Stock
+                                            Rupture de stock
                                         </div>
                                     </div>
                                 <?php else: ?>
-                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> Add to Cart</a></p>
+                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_154; ?></a></p>
                                 <?php endif; ?>
                             </div>
                         </div>

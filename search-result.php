@@ -25,7 +25,7 @@ foreach ($result as $row) {
     <div class="overlay"></div>
     <div class="inner">
         <h1>
-            Search By: 
+            Recherche : 
             <?php 
                 $search_text = strip_tags($_REQUEST['search_text']); 
                 echo e($search_text); 
@@ -79,9 +79,9 @@ foreach ($result as $row) {
             {   
                 $pagination .= "<div class=\"pagination\">";
                 if ($page > 1) 
-                    $pagination.= "<a href=\"$targetpage&page=$prev\">&#171; previous</a>";
+                    $pagination.= "<a href=\"$targetpage&page=$prev\">&#171; Précédent</a>";
                 else
-                    $pagination.= "<span class=\"disabled\">&#171; previous</span>";    
+                    $pagination.= "<span class=\"disabled\">&#171; Précédent</span>";    
                 if ($lastpage < 7 + ($adjacents * 2))   //not enough pages to bother breaking it up
                 {   
                     for ($counter = 1; $counter <= $lastpage; $counter++)
@@ -138,9 +138,9 @@ foreach ($result as $row) {
                     }
                 }
                 if ($page < $counter - 1) 
-                    $pagination.= "<a href=\"$targetpage&page=$next\">next &#187;</a>";
+                    $pagination.= "<a href=\"$targetpage&page=$next\">Suivant &#187;</a>";
                 else
-                    $pagination.= "<span class=\"disabled\">next &#187;</span>";
+                    $pagination.= "<span class=\"disabled\">Suivant &#187;</span>";
                 $pagination.= "</div>\n";       
             }
             /* ===================== Pagination Code Ends ================== */
@@ -149,7 +149,7 @@ foreach ($result as $row) {
                         <?php
                             
                             if(!$total_pages):
-                                echo '<span style="color:red;font-size:18px;">No result found</span>';
+                                echo '<span style="color:red;font-size:18px;">Aucun résultat trouvé</span>';
                             else:
                             foreach ($result as $row) {
                                 ?>
@@ -174,11 +174,11 @@ foreach ($result as $row) {
                                             <?php if($row['p_qty'] == 0): ?>
                                                 <div class="out-of-stock">
                                                     <div class="inner">
-                                                        Out Of Stock
+                                                        Rupture de stock
                                                     </div>
                                                 </div>
                                             <?php else: ?>
-                                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>">Add to Cart</a></p>
+                                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a></p>
                                             <?php endif; ?>
                                         </div>
                                     </div>
