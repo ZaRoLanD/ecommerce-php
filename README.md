@@ -14,41 +14,41 @@ Site e-commerce PHP/MySQL complet (boutique + back-office), modernisé :
 
 ### Page d'accueil
 
-![Page d'accueil](docs/screenshots/home.png)
+![Page d'accueil](docs/screenshots/accueil.png)
 
 ### Les 4 palettes (sélecteur intégré en bas à droite, choix mémorisé)
 
 | Défaut (violet) | Chaleureuse |
 |:---:|:---:|
-| ![Palette par défaut](docs/screenshots/home.png) | ![Palette chaleureuse](docs/screenshots/home-warm.png) |
+| ![Palette par défaut](docs/screenshots/accueil.png) | ![Palette chaleureuse](docs/screenshots/accueil-chaleureuse.png) |
 | **Froide** | **Luxe (typographie serif)** |
-| ![Palette froide](docs/screenshots/home-cool.png) | ![Palette luxe](docs/screenshots/home-luxe.png) |
+| ![Palette froide](docs/screenshots/accueil-froide.png) | ![Palette luxe](docs/screenshots/accueil-luxe.png) |
 
 ### Fiche produit
 
-![Fiche produit](docs/screenshots/product.png)
+![Fiche produit](docs/screenshots/produit.png)
 
 ### Catégorie & recherche
 
 | Catégorie | Recherche |
 |:---:|:---:|
-| ![Catégorie](docs/screenshots/category.png) | ![Recherche](docs/screenshots/search.png) |
+| ![Catégorie](docs/screenshots/categorie.png) | ![Recherche](docs/screenshots/recherche.png) |
 
 ### Compte client
 
 | Connexion | Inscription |
 |:---:|:---:|
-| ![Connexion](docs/screenshots/login.png) | ![Inscription](docs/screenshots/register.png) |
+| ![Connexion](docs/screenshots/connexion.png) | ![Inscription](docs/screenshots/inscription.png) |
 
 ### Pages d'information
 
 | FAQ | Contact | À propos |
 |:---:|:---:|:---:|
-| ![FAQ](docs/screenshots/faq.png) | ![Contact](docs/screenshots/contact.png) | ![À propos](docs/screenshots/about.png) |
+| ![FAQ](docs/screenshots/questions-frequentes.png) | ![Contact](docs/screenshots/contact-fr.png) | ![À propos](docs/screenshots/a-propos.png) |
 
 ### Back-office (AdminLTE restylé)
 
-![Connexion admin](docs/screenshots/admin-login.png)
+![Connexion admin](docs/screenshots/admin-connexion.png)
 
 ---
 
